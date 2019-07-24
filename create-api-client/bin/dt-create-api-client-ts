@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+dt-create-api-client -l ts -s $*
