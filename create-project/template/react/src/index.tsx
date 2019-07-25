@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Provider, configureStore, loadConfiguration, Route, HashRouter } from 'app-support';
+import { RouteComponentProps } from 'react-router';
+import { App } from './components/App';
+import 'semantic-ui-css/semantic.min.css';
+import * as reducers from './reducers';
+//import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore(reducers.default, true);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+loadConfiguration('config.json').then((cfg: any) => {
+    ReactDOM.render(
+        <Provider store={store}>
+            <HashRouter basename={cfg.APPNAME || ''}>
+                <Route path={`/`} component={(p: RouteComponentProps<any>) => <App />} />
+            </HashRouter>
+        </Provider>,
+        document.getElementById('root')
+    );
+});
+
+//serviceWorker.unregister();
