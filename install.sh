@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+./sync-toolkit/install.sh
 ./create-api-client/install.sh
 ./create-project/install.sh
 
