@@ -1,4 +1,4 @@
-FROM node
+FROM alpine
 
 RUN mkdir -p /app
 
