@@ -1,4 +1,4 @@
-FROM alpine
+FROM centos
 
 RUN mkdir -p /app
 
