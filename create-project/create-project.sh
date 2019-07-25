@@ -13,6 +13,16 @@ echo Applying substitutions...
 sed -i -e "s/__DT_PROJECT_NAME/${name}/g" ./$name/**/*.*
 
 echo Finalizing project...
-#rename "s/__DT_PROJECT_NAME/${name}/g" **/**
+# Rename files with __DT_PROJECT_NAME
+for i in ./$name/**/*__DT_PROJECT_NAME*
+do 
+    mv "$i" "${i/__DT_PROJECT_NAME/$name}"
+done 
+
+# Rename _gitignore into .gitignore
+for i in ./$name/**/_gitignore
+do 
+    mv "$i" "${i/_gitignore/.gitignore}"
+done 
 
 echo Done!
