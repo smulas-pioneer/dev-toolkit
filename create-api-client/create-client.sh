@@ -57,7 +57,7 @@ if [[ "$swag" != "" ]] && [[ "$lang" != "" ]]; then
   if [ "$lang" == "ts" ]; then
     vlang="Type Script"
     slang="swagger2tsclient"
-    swagCodeOpts='/ClassName:{controller}Client /NullValue:Undefined /UseTransformOptionsMethod:true /ClientBaseClass:BaseClientProxy /Template:Fetch /PromiseType:Promise /DateTimeType:string /GenerateClientClasses:true /GenerateDtoTypes:true /OperationGenerationMode:MultipleClientsFromPathSegments /MarkOptionalProperties:true /TypeStyle:Interface'
+    swagCodeOpts='/ClassName:{controller}Client /NullValue:Undefined /UseTransformOptionsMethod:true /ClientBaseClass:BaseClientProxy /Template:Fetch /PromiseType:Promise /DateTimeType:string /GenerateClientClasses:true /GenerateDtoTypes:true /OperationGenerationMode:MultipleClientsFromOperationId /MarkOptionalProperties:true /TypeStyle:Interface'
     swagCodeOpts="$swagCodeOpts /ExtensionCode:$tplExtCode"
 
   else
