@@ -64,7 +64,7 @@ if [[ "$swag" != "" ]] && [[ "$lang" != "" ]]; then
     if [ "$lang" == "cs" ]; then
       vlang="C#"
       slang="swagger2csclient"
-      swagCodeOpts="/Namespace:\"$ns\" /ClassStyle:Poco /ArrayType:System.Collections.Generic.IEnumerable /UseHttpClientCreationMethod:true"
+      swagCodeOpts="/Namespace:$ns /ClassStyle:Poco /ArrayType:System.Collections.Generic.IEnumerable /UseHttpClientCreationMethod:true"
     fi
   fi
 fi
