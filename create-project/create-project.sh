@@ -7,8 +7,7 @@ function usage(){
 name=$1
 template=$2
 
-if [[ "$name" == "" ]]; then echo Mssing project name!; usage; exit 1; fi
-if [[ "$template" == "" ]]; then echo Mssing template!; usage; exit 1; fi
+if [[ "$name" == "" ]] || [[ "$template" == "" ]]; then echo 'Bad command!'; usage; exit 1; fi
 
 echo Creating project "$name"...
 
