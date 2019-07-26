@@ -13,16 +13,17 @@ fi
 # deletes the temp directory
 function cleanup {
   rm -rf "$WORK_DIR"
-  echo "Deleted temp working directory $WORK_DIR"
+  #echo "Deleted temp working directory $WORK_DIR"
 }
 
 # register the cleanup function to be called on the EXIT signal
 trap cleanup EXIT
 
 # implementation of script starts here
-git clone --depth 1 https://github.com/vgmr/dev-toolkit.git $WORK_DIR
+echo Synching dev-toolkit...
+git clone -q --depth 1 https://github.com/vgmr/dev-toolkit.git $WORK_DIR
 
 cd $WORK_DIR
 ./install.sh
 
-exit
+echo done.
