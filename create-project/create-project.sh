@@ -21,12 +21,20 @@ do
 done
 
 echo Finalizing project...
-# Rename files with __DT_PROJECT_NAME
-find . -name '*__DT_PROJECT_NAME*' |
+
+# Rename files with __DT_PROJECT_NAME (folders/files)
+find . -type d -name '*__DT_PROJECT_NAME*' |
 while read filename
 do
     mv "$filename" "${filename/__DT_PROJECT_NAME/$name}"
 done
+
+find . -type f -name '*__DT_PROJECT_NAME*' |
+while read filename
+do
+    mv "$filename" "${filename/__DT_PROJECT_NAME/$name}"
+done
+
 # Rename _gitignore into .gitignore
 for i in ./**/_gitignore
 do
