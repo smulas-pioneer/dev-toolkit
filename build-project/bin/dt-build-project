@@ -21,3 +21,10 @@ if [[ "$type" == "react" ]]; then
   # copy artifact
   cp -R ${src}/build/ ${dst}
 fi
+
+if [[ "$type" == "netcore" ]]; then
+  # react compile
+  docker run -v ${src}:/home -w /home  --rm dev-toolkit-build-project-netcore
+  # copy artifact
+  cp -R ${src}/build/ ${dst}
+fi  
