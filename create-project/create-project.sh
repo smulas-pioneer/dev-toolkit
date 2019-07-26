@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
+function showusage(){
+  echo "create-project [projectName] [template: react/netcore]";
+}
+
 name=$1
 template=$2
+
+if [[ "$name" == "" ]]; echo Mssing project name!; showusage(); exit;
+if [[ "$template" == "" ]]; echo Mssing template!; showusage(); exit;
 
 echo Creating project "$name"...
 
