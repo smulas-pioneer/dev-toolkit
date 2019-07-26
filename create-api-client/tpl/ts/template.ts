@@ -1,7 +1,7 @@
 
 class BaseClientProxy {
   public static defaultHeaders: { [key: string]: string };
-  protected transformOptions(options_) {
+  protected transformOptions(options_: any) {
     // add creds
     options_.credentials = 'include';
     options_.mode = 'cors';
