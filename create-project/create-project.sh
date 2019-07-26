@@ -27,4 +27,4 @@ do
     mv "$i" "${i/_gitignore/.gitignore}"
 done
 
-echo Done!
+echo Done.
