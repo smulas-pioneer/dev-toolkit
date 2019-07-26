@@ -2,8 +2,10 @@
 
 cd $(dirname $0)
 
-docker rmi dev-toolkit-create-project > /dev/null
+if [[ "$(docker images -q dev-toolkit-create-project 2> /dev/null)" == "" ]]; then
+  docker rmi dev-toolkit-create-project > /dev/null
+fi
 
-docker build --quiet -t dev-toolkit-create-project .
+docker build --quiet -t dev-toolkit-create-project . > /dev/null
 
 cp ./bin/* /usr/local/bin
