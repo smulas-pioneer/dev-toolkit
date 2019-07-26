@@ -16,8 +16,8 @@ echo Applying substitutions...
 
 find . -type f |
 while read filename
- sed -i "s/__DT_PROJECT_NAME/${name}/g" $filename
 do
+ sed -i "s/__DT_PROJECT_NAME/${name}/g" $filename
 done
 
 echo Finalizing project...
