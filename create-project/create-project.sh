@@ -16,8 +16,11 @@ find . -type f -exec grep -Iq . {} \; -exec sed -i "s/__DT_PROJECT_NAME/${name}/
 
 echo Finalizing project...
 # Rename files with __DT_PROJECT_NAME
-find . -name *__DT_PROJECT_NAME* -exec  mv "$i" "${i/__DT_PROJECT_NAME/$name}" {} +
-
+find . -name *__DT_PROJECT_NAME* |
+while read filename
+do
+    mv "$filename" "${filename/__DT_PROJECT_NAME/$name}"
+done
 # Rename _gitignore into .gitignore
 for i in ./**/_gitignore
 do
