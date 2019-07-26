@@ -16,7 +16,7 @@ find . -type f -exec grep -Iq . {} \; -exec sed -i "s/__DT_PROJECT_NAME/${name}/
 
 echo Finalizing project...
 # Rename files with __DT_PROJECT_NAME
-for i in ./**/*__DT_PROJECT_NAME*.*
+for i in $(find . -name *__DT_PROJECT_NAME*)
 do
     mv "$i" "${i/__DT_PROJECT_NAME/$name}"
 done
