@@ -12,7 +12,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="appsettings.development.json" Condition=" '$(Configuration)' == 'Debug' ">
+    <Content Include="appsettings.Development.json" Condition=" '$(Configuration)' == 'Debug' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

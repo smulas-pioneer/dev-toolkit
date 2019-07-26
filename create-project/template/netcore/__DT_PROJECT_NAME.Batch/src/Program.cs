@@ -46,7 +46,7 @@ namespace __DT_PROJECT_NAME.Batch {
         static IContainer InitApp() {
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile("appsettings.development.json", optional: true, reloadOnChange: true);
+                .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true);
 
             var configuration = builder.Build();
 

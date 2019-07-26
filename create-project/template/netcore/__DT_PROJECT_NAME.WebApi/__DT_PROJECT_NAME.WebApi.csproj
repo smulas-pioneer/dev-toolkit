@@ -8,8 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="dharma.yaml" Condition=" '$(Configuration)' == 'Debug' ">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lamar.Microsoft.DependencyInjection" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <ProjectReference Include="..\__DT_PROJECT_NAME.Services\__DT_PROJECT_NAME.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dharma.Dave" Version="2.2.*" />
+    <PackageReference Include="Dharma.Dave.Logger.Serilog" Version="2.2.*" />
+    <PackageReference Include="Dharma.Workspace.EntityFramework.MSSQL" Version="2.2.*" />
+    <PackageReference Include="Dharma.Workspace.Yaml" Version="1.*" />
+    <PackageReference Include="lamar" Version="3.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+  </ItemGroup>
 </Project>
