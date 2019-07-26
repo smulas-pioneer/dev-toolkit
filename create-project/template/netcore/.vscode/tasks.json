@@ -2,6 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Update Batch Proxy Client",
+      "isBackground": true,
+      "command": "curl http://localhost:5000/swagger/v1/swagger.json -o tmp.json && dt-create-api-client -l cs -s tmp.json -n __DT_PROJECT_NAME.MGLib -o ApiClient.cs && rm tmp.json",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/__DT_PROJECT_NAME.Batch/src"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Clear ALL output",
       "isBackground": true,
       "command": "rm -rf  $(find . -type d -name 'obj') && rm -rf  $(find . -type d -name 'bin')",
