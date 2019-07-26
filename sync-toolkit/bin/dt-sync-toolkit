@@ -20,7 +20,8 @@ function cleanup {
 trap cleanup EXIT
 
 # implementation of script starts here
-git clone --depth 1 https://github.com/vgmr/dev-toolkit.git $WORK_DIR
+echo Synching dev-toolkit...
+git clone -q --depth 1 https://github.com/vgmr/dev-toolkit.git $WORK_DIR
 
 cd $WORK_DIR
 ./install.sh
