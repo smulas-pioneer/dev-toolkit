@@ -7,4 +7,4 @@
 chmod +x /usr/local/bin/dt-*
 
 # remove dangling images
-docker image prune -f --quiet
+docker image prune -f
