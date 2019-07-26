@@ -10,7 +10,8 @@ cp -r /app/template/$template ./$name
 shopt -s globstar nullglob
 
 echo Applying substitutions...
-sed -i -e "s/__DT_PROJECT_NAME/${name}/g" ./$name/**/(.)
+# sed -i -e "s/__DT_PROJECT_NAME/${name}/g" ./$name/**/(.)
+find ./$name -type f -exec grep -Iq . {} \; -exec sed -i "s/__DT_PROJECT_NAME/${name}/g" {} +
 
 echo Finalizing project...
 # Rename files with __DT_PROJECT_NAME
