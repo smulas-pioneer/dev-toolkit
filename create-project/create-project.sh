@@ -22,7 +22,7 @@ done
 
 echo Finalizing project...
 # Rename files with __DT_PROJECT_NAME
-find . -name *__DT_PROJECT_NAME* |
+find . -name '*__DT_PROJECT_NAME*' |
 while read filename
 do
     mv "$filename" "${filename/__DT_PROJECT_NAME/$name}"
