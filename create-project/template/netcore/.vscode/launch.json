@@ -24,6 +24,35 @@
       }
     },
     {
+      "name": "__DT_PROJECT_NAME Web Api",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "__DT_PROJECT_NAME Web Api build",
+      "program": "${workspaceFolder}/__DT_PROJECT_NAME.WebApi/bin/Debug/netcoreapp2.2/__DT_PROJECT_NAME.WebApi.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/__DT_PROJECT_NAME.WebApi",
+      "stopAtEntry": false,
+      "launchBrowser": {
+        "enabled": false,
+        "args": "${auto-detect-url}",
+        "windows": {
+          "command": "cmd.exe",
+          "args": "/C start ${auto-detect-url}/swagger"
+        },
+        "osx": {
+          "command": "open",
+          "args": "${auto-detect-url}/swagger"
+        },
+        "linux": {
+          "command": "xdg-open",
+          "args": "${auto-detect-url}/swagger"
+        }
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
       "name": ".NET Core Attach",
       "type": "coreclr",
       "request": "attach",
