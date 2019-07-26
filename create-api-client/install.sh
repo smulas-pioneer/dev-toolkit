@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-docker rmi dev-toolkit-create-api-client
+docker rmi dev-toolkit-create-api-client > /dev/null
 
 docker build --quiet -t dev-toolkit-create-api-client .
 
