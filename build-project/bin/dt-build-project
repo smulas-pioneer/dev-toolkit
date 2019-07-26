@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+set -x
+
+# create ouput folder if not exist
+mkdir -p $3
+
+# project type
+type=$1
+
+# source directory full path
+src=$(pushd $2 > /dev/null && pwd && popd > /dev/null)
+
+# output directory full path
+dst=$(pushd $3 > /dev/null && pwd && popd > /dev/null)
+
+
+if [[ "$type" == "react" ]]; then
+  # react compile
+  docker run -v ${src}:/home -w /home  --rm dev-toolkit-build-project-react
+  # copy artifact
+  cp -R ${src}/build/ ${dst}
+fi
