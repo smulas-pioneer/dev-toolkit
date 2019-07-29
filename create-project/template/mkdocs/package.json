@@ -1,0 +1,12 @@
+{
+  "name": "__DT_PROJECT_NAME",
+  "description": "__DT_PROJECT_NAME documentation",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "echo 'Serving __DT_PROJECT_NAME on http://localhost:8092' && docker run -v $(pwd):/home/user --rm -p 8092:80 thinkcube/mkdocs ",
+    "build": "docker run -v $(pwd):/home/user --rm thinkcube/mkdocs mkdocs build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

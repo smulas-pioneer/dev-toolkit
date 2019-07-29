@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function usage(){
-  echo "create-project [projectName] [template: react/netcore]";
+  echo "create-project [projectName] [template: react/netcore/mkdocs]";
 }
 
 name=$1
