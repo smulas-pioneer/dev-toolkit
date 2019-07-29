@@ -72,7 +72,7 @@ fi
 if [ "$vlang" == "" ]; then usage; exit 1; fi
 
 echo "$vlang client reading schema from: $swag and writing output to: $output"
-echo "[DEBUG] $swagCodeOpts"
+#echo "[DEBUG] $swagCodeOpts"
 
 mono /app/nswag/NSwag.exe $slang /Input:"$swag" /Output:"$output" $swagCodeOpts
 
