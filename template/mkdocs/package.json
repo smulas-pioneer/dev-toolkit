@@ -1,0 +1,12 @@
+{
+  "name": "",
+  "description": " documentation",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "echo 'Serving  on http://localhost:8092' && docker run -v $(pwd):/home/user --rm -p 8092:80 thinkcube/mkdocs ",
+    "build": "docker run -v $(pwd):/home/user --rm thinkcube/mkdocs mkdocs build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

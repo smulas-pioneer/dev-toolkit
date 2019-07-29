@@ -1,24 +1,55 @@
 #!/usr/bin/env bash
 
-function usage(){
-  echo "create-project [projectName] [template: react/netcore/mkdocs]";
+function usage()
+{
+   cat << HEREDOC
+
+   Usage: dt-$progname [--name PROJECT_NAME] [--type PROJECT_TYPE]
+
+   optional arguments:
+     -h, --help                       show this help message and exit
+     -n, --name       PROJECT_NAME    pass a valid project name
+     -t, --type       PROJECT_TYPE    available types [react, netcore, mkdocs]
+
+HEREDOC
 }
 
-name=$1
-template=$2
+# initialize variables
+progname=$(basename $0 | cut -d. -f1)
+name=
+type=
 
-if [[ "$name" == "" ]] || [[ "$template" == "" ]]; then echo 'Bad command!'; usage; exit 1; fi
+# use getopt and store the output into $OPTS
+# note the use of -o for the short options, --long for the long name options
+# and a : for any option that takes a parameter
+OPTS=$(getopt -o "hn:t:" --long "help,name:,type:" -n "$progname" -- "$@")
+if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
+if [ $# -eq 0 ]; then usage; exit 1; fi
+
+eval set -- "$OPTS"
+
+while true; do
+  # uncomment the next line to see how shift is working
+  # echo "\$1:\"$1\" \$2:\"$2\""
+  case "$1" in
+    -h | --help ) usage; exit; ;;
+    -n | --name ) name="$2"; shift 2 ;;
+    -t | --type ) type="$2"; shift 2 ;;
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
 
 echo Creating project "$name"...
 
-cp -r /app/template/$template ./$name
+if [ ! -d "/app/template/$type" ]; then usage; exit 1; fi
+
+cp -r /app/template/$type ./$name
 
 shopt -s globstar nullglob
 
 cd ./$name
 echo Applying substitutions...
-# sed -i -e "s/__DT_PROJECT_NAME/${name}/g" ./$name/**/(.)
-#find . -type f -exec grep -Iq . {} \; -exec sed -i "s/__DT_PROJECT_NAME/${name}/g" {} +
 
 find . -type f |
 while read filename

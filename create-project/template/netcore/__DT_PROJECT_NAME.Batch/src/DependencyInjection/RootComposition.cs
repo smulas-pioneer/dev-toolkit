@@ -15,9 +15,8 @@ namespace __DT_PROJECT_NAME.Batch.DependencyInjection {
                  builder.Parameters
                        .MapSection("sample").Cached.ToProperty("SampleParams")
                        .MapSection("other").ToRoot();
-
-                 // authorization(s)
-                 //  builder.Authorizations.MapToProperty("Auth");
+                 builder.Authorizations
+                       .MapToProperty( /* null props means AppSupport root object */);
              })
              .AddSingleton<I__DT_PROJECT_NAMEBatch, __DT_PROJECT_NAMEBatch>();
 

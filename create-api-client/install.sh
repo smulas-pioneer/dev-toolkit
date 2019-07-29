@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-if [[ "$(docker images -q dev-toolkit-create-api-client 2> /dev/null)" == "" ]]; then
+if [[ "$(docker images -q dev-toolkit-create-api-client 2> /dev/null)" != "" ]]; then
   docker rmi dev-toolkit-create-api-client > /dev/null
 fi
 
