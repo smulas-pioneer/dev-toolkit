@@ -4,7 +4,7 @@ function usage()
 {
    cat << HEREDOC
 
-   Usage: $progname [--name PROJECT_NAME] [--type PROJECT_KIND]
+   Usage: dt-$progname [--name PROJECT_NAME] [--type PROJECT_KIND]
 
    optional arguments:
      -h, --help                       show this help message and exit
@@ -15,7 +15,7 @@ HEREDOC
 }
 
 # initialize variables
-progname=$(basename $0)
+progname=$(basename $0 | cut -d. -f1)
 name=
 type=
 
@@ -24,6 +24,8 @@ type=
 # and a : for any option that takes a parameter
 OPTS=$(getopt -o "hn:t:" --long "help,name:,type:" -n "$progname" -- "$@")
 if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
+if [ $# -eq 0 ]; then usage; exit 1; fi
+
 eval set -- "$OPTS"
 
 while true; do

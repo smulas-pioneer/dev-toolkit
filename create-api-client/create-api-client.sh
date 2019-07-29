@@ -5,7 +5,7 @@ function usage()
 {
    cat << HEREDOC
 
-   Usage: $progname [--swag SWAGGER_ENDPOINT] [--lang LANG] [--output OUTPUT_FILE] [--namespace C# NAMESPACE]
+   Usage: dt-$progname [--swag SWAGGER_ENDPOINT] [--lang LANG] [--output OUTPUT_FILE] [--namespace C# NAMESPACE]
 
    optional arguments:
      -h, --help                         show this help message and exit
@@ -18,7 +18,7 @@ HEREDOC
 }
 
 # initialize variables
-progname=$(basename $0)
+progname=$(basename $0 | cut -d. -f1)
 swag=
 lang=
 ns="MGLib"
@@ -33,6 +33,8 @@ swagCodeOpts=
 # and a : for any option that takes a parameter
 OPTS=$(getopt -o "hs:l:n:o:" --long "help,swag:,lang:,namespace:,output:" -n "$progname" -- "$@")
 if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
+if [ $# -eq 0 ]; then usage; exit 1; fi
+
 eval set -- "$OPTS"
 
 while true; do
