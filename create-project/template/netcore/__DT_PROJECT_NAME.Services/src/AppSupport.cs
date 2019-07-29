@@ -7,7 +7,6 @@ using DHARMA.Jacob.CommonUtils;
 namespace __DT_PROJECT_NAME.Services {
     public class AppSupport : IAppSupport {
         public DharmaConnection DHARMA_SAMPLE_CONNECTION { get; set; }
-
         public Dictionary<string, string> SampleParams { get; set; }
         public IDictionary<string, string> Params => SampleParams;
 
@@ -23,5 +22,8 @@ namespace __DT_PROJECT_NAME.Services {
                         connection.SecuredData != null ? CryptHelper.Decryptor(connection.SecuredData) : null);
             }
         }
+
+        public bool IsCanRead { get; set; }
+        public bool IsCanWrite { get; set; }
     }
 }

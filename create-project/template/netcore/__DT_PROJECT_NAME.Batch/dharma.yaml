@@ -1,5 +1,20 @@
 dharma:
 
+  users:
+  - login: LOCAL\USER
+    name: Albert
+    surname: Ein
+    email: albert.mc2@local.com
+    description: Sample Admin User
+
+  roles:
+    owner: [LOCAL\USER]
+    guest: [LOCAL\GUEST, LOCAL\OTHER]
+
+  functions:
+    canRead: [owner, guest]
+    canWrite: [owner]
+
   parameters:
 
     system:

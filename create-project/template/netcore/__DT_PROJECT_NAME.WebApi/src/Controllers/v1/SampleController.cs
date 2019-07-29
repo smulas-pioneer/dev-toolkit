@@ -26,7 +26,12 @@ namespace __DT_PROJECT_NAME.WebApi.Controllers {
 
         [HttpGet("parameters")]
         public ActionResult<IEnumerable<KeyValuePair<string, string>>> GetParameters() {
-            return Ok( _appSupport.Params.AsEnumerable() );
+            return Ok(_appSupport.Params.AsEnumerable());
+        }
+
+        [HttpGet("authorizations")]
+        public ActionResult<IEnumerable<KeyValuePair<string, string>>> GetAuthorizations() {
+            return Ok((IsCanRead: _appSupport.IsCanRead, IsCanWrite: _appSupport.IsCanWrite));
         }
 
         [HttpGet("flat-result")]

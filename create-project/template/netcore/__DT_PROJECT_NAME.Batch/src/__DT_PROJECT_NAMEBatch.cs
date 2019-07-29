@@ -16,6 +16,7 @@ namespace __DT_PROJECT_NAME.Batch {
         }
 
         public void Start(params object[] arguments) {
+            _log?.LogInformation("User connected:: {0}", _dave.GetUser().FullDescription);
             _log?.LogInformation("Sample argument: {0}", _dave.GetArgValue<string>("SAMPLE"));
 
             _log?.LogInformation("--- App Support Connection --- {0}", _appSupport.SAMPLE_CONNECTION?.Url);
@@ -26,6 +27,11 @@ namespace __DT_PROJECT_NAME.Batch {
             }
             _log?.LogInformation($"Parm {nameof(_appSupport.LoaderWebApiEndpoint)}: {_appSupport.LoaderWebApiEndpoint}");
             _log?.LogInformation($"Parm {nameof(_appSupport.ServiceCookieEmailValue)}: {_appSupport.ServiceCookieEmailValue}");
+
+
+            _log?.LogInformation("--- App Support Authorizations ---");
+            _log.LogInformation("User can read? {0}", _appSupport.IsCanRead);
+            _log.LogInformation("User can write? {0}", _appSupport.IsCanWrite);
         }
     }
 }

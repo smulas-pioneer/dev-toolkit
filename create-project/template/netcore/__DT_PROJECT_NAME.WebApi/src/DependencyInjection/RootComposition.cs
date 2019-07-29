@@ -16,9 +16,8 @@ namespace __DT_PROJECT_NAME.WebApi.Extensions.DependecyInjection {
                 builder.Parameters
                       .MapSection("sample").Cached.ToProperty("SampleParams")
                       .MapSection("other").ToRoot();
-
-                // authorization(s)
-                //  builder.Authorizations.MapToProperty("Auth");
+                builder.Authorizations
+                       .MapToProperty( /* null props means AppSupport root object */);
             });
             return registry;
         }
