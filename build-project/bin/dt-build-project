@@ -71,8 +71,8 @@ if [[ "$type" == "netcore" ]]; then
   # netcore compile
   echo DT_TYPE=$type > env-list
   echo DT_PROJECT=$proj >> env-list
-  echo http_proxy="http://proxyweb:8080" >> env-list
-  echo https_proxy="http://proxyweb:8080" >> env-list
+  echo http_proxy=$http_proxy >> env-list
+  echo https_proxy=$http_proxy >> env-list
   echo no_proxy=$no_proxy >> env-list
 
   if [ ! -f "$src/Nuget.Config" ]; then
