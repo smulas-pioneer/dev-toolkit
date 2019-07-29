@@ -84,7 +84,7 @@ if [[ "$type" == "netcore" ]]; then
 
   rm ./env-list
 
-  if [ $DELETE_NUGET == 1 ]; then rm ${src}/NuGet.Config; fi
+  if [[ $DELETE_NUGET == 1 ]]; then rm ${src}/NuGet.Config; fi
 
   # copy artifact
   cp -R ${src}/build/ ${dst}
