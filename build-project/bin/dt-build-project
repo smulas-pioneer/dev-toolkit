@@ -72,13 +72,17 @@ if [[ "$type" == "netcore" ]]; then
   echo DT_TYPE=$type > env-list
   echo DT_PROJECT=$proj >> env-list
 
-  cp ~/.nuget/NuGet/NuGet.Config .
+
+  if [ ! -f "$src/Nuget.Config" ]; then
+    cp ~/.nuget/NuGet/NuGet.Config ${src}
+    DELETE_NUGET=1
+  fi
 
   docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-netcore
 
   rm ./env-list
 
-  NuGet.Config
+  if [ $DELETE_NUGET == 1 ]; then rm ${src}/NuGet.Config; fi
 
   # copy artifact
   cp -R ${src}/build/ ${dst}
