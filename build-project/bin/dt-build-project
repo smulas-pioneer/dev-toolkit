@@ -71,11 +71,14 @@ if [[ "$type" == "netcore" ]]; then
   # netcore compile
   echo DT_TYPE=$type > env-list
   echo DT_PROJECT=$proj >> env-list
-  echo 
+
+  cp ~/.nuget/NuGet/NuGet.Config .
 
   docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-netcore
 
   rm ./env-list
+
+  NuGet.Config
 
   # copy artifact
   cp -R ${src}/build/ ${dst}
