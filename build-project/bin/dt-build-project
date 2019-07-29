@@ -72,7 +72,6 @@ if [[ "$type" == "netcore" ]]; then
   echo DT_TYPE=$type > env-list
   echo DT_PROJECT=$proj >> env-list
 
-
   if [ ! -f "$src/Nuget.Config" ]; then
     cp ~/.nuget/NuGet/NuGet.Config ${src}
     DELETE_NUGET=1
