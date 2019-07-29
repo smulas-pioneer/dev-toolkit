@@ -5,6 +5,6 @@ if [ -d "$DT_PROJECT" ]; then
   cd $DT_PROJECT
 fi
 
-dotnet publish -c release -o /build
+dotnet publish -c release -o ./build
 
 echo Done!
