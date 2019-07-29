@@ -4,12 +4,12 @@ function usage()
 {
    cat << HEREDOC
 
-   Usage: dt-$progname [--name PROJECT_NAME] [--type PROJECT_KIND]
+   Usage: dt-$progname [--name PROJECT_NAME] [--type PROJECT_TYPE]
 
    optional arguments:
      -h, --help                       show this help message and exit
      -n, --name       PROJECT_NAME    pass a valid project name
-     -t, --type       PROJECT_KIND    available kinds [react, netcore, mkdocs]
+     -t, --type       PROJECT_TYPE    available types [react, netcore, mkdocs]
 
 HEREDOC
 }
