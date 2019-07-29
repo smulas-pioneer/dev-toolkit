@@ -25,13 +25,11 @@ namespace __DT_PROJECT_NAME.WebApi.Controllers {
         }
 
         [HttpGet("parameters")]
-        public ActionResult<IEnumerable<KeyValuePair<string, string>>> GetParameters() {
-            return Ok(_appSupport.Params.AsEnumerable());
-        }
+        public ActionResult<IDictionary<string, string>> GetParameters() => Ok(_appSupport.Params);
 
         [HttpGet("authorizations")]
-        public ActionResult<IEnumerable<KeyValuePair<string, string>>> GetAuthorizations() {
-            return Ok((IsCanRead: _appSupport.IsCanRead, IsCanWrite: _appSupport.IsCanWrite));
+        public ActionResult<IDictionary<string, bool>> GetAuthorizations() {
+            return Ok(new Dictionary<string, bool> { { "IsCanRead", _appSupport.IsCanRead }, { "IsCanWrite", _appSupport.IsCanWrite } });
         }
 
         [HttpGet("flat-result")]
