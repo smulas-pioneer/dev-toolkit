@@ -1,19 +1,64 @@
 #!/usr/bin/env bash
 set -e
-set -x
+
+function usage()
+{
+   cat << HEREDOC
+
+   Usage: $progname [-t PROJECT_TYPE] [-s SOURCE] [-d DESTINATION]
+
+   optional arguments:
+     -h,                 show this help message and exit
+     -t,   PROJECT_TYPE  available types [react, netcore]
+     -s,   SOURCE        source folder
+     -d,   DESTINATION   destination folder
+     -p,   PROJECT_NAME  pass a valid project name if needed (source sub-folder)
+
+HEREDOC
+}
+
+# initialize variables
+progname=$(basename $0 | cut -d. -f1)
+src=
+dest=
+type=
+proj=
+
+# use getopt and store the output into $OPTS
+# note the use of -o for the short options, --long for the long name options
+# and a : for any option that takes a parameter
+OPTS=$(getopt ht:s:d:p: $*)
+if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
+if [ $# -eq 0 ]; then usage; exit 1; fi
+
+eval set -- $OPTS
+
+while true; do
+  # uncomment the next line to see how shift is working
+  #echo "\$1:\"$1\" \$2:\"$2\""
+  case "$1" in
+    -h ) usage; exit; ;;
+    -t ) type="$2"; shift 2 ;;
+    -s ) src="$2"; shift 2 ;;
+    -d ) dest="$2"; shift 2 ;;
+    -p ) proj="$2"; shift 2 ;;
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
+
+if [ "" == "$type" ] ||  [ "" == "$src" ] ||  [ "" == "$dest" ]; then usage; exit 1; fi
 
 # create ouput folder if not exist
-mkdir -p $3
-
-# project type
-type=$1
+if [ ! -d "$dest" ]; then
+  mkdir -p $dest
+fi
 
 # source directory full path
-src=$(pushd $2 > /dev/null && pwd && popd > /dev/null)
+src=$(pushd $src > /dev/null && pwd && popd > /dev/null)
 
 # output directory full path
-dst=$(pushd $3 > /dev/null && pwd && popd > /dev/null)
-
+dst=$(pushd $dest > /dev/null && pwd && popd > /dev/null)
 
 if [[ "$type" == "react" ]]; then
   # react compile
@@ -23,8 +68,14 @@ if [[ "$type" == "react" ]]; then
 fi
 
 if [[ "$type" == "netcore" ]]; then
-  # react compile
-  docker run -v ${src}:/home -w /home  --rm dev-toolkit-build-project-netcore
+  # netcore compile
+  echo DT_TYPE=$type > env-list
+  echo DT_PROJECT=$proj >> env-list
+
+  docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-netcore
+
+  rm ./env-list
+
   # copy artifact
   cp -R ${src}/build/ ${dst}
-fi  
+fi
