@@ -1,3 +1,5 @@
-import { createAction } from "app-support";
+import { createAction, createPromiseAction } from "redux-helper";
 
-const test = createAction<string>("TEST");
+export const testAction = createAction<string>("TEST_ACTION");
+
+export const testPromiseAction = createPromiseAction("TEST_PROMISE_ACTION", ()=>Promise.resolve('test'), testAction);

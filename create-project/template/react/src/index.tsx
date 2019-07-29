@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider, configureStore, loadConfiguration, Route, HashRouter } from 'app-support';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, Route, HashRouter } from 'react-router-dom';
 import { App } from './components/App';
 import 'semantic-ui-css/semantic.min.css';
 import * as reducers from './reducers';
+import { Provider } from 'react-redux';
+import { loadConfiguration } from './utils/configLoader';
+import { configureStore } from './utils/configureMiddlewares';
 //import * as serviceWorker from './serviceWorker';
 
 const store = configureStore(reducers.default, true);

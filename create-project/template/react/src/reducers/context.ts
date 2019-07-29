@@ -1,4 +1,4 @@
-import { onError, onEnd, onStart } from 'app-support';
+import { onStart, onEnd, onError } from "../utils/configureMiddlewares";
 
 
 export interface State {

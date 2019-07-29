@@ -1,5 +1,5 @@
-import { Redux } from 'app-support';
 import * as fromContext from './context';
+import { combineReducers } from 'redux';
 
 // Store Model
 export interface AppState {
@@ -7,7 +7,7 @@ export interface AppState {
 }
 
 // Root Reducer
-export default Redux.combineReducers<AppState>({
+export default combineReducers<AppState>({
   context: fromContext.default,
 });
 
