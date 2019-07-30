@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 echo Build .NETCORE Project
+set -e
+#set -x
 
 no_restore=
 
@@ -20,6 +22,6 @@ else
 
 fi
 
-dotnet publish -c release $no_restore -o ./build
+dotnet publish -c release $no_restore -o ./build -f $DT_TARGET_FRAMEWORK
 
 echo Done!

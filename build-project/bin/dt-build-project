@@ -8,12 +8,13 @@ function usage()
    Usage: $progname [-t PROJECT_TYPE] [-s SOURCE] [-d DESTINATION]
 
    optional arguments:
-     -h,                  show this help message and exit
-     -t,   PROJECT_TYPE   available types [react, netcore]
-     -s,   SOURCE         source folder
-     -d,   DESTINATION    destination folder
-     -p,   PROJECT_NAME   pass a valid project name if needed (source sub-folder)
-     -n,   NUGET_CFG_FILE pass a valid NuGet configuration file to use (netcore)
+     -h,                      show this help message and exit
+     -t,   PROJECT_TYPE       available types [react, netcore]
+     -s,   SOURCE             source folder
+     -d,   DESTINATION        destination folder
+     -p,   PROJECT_NAME       pass a valid project name if needed (source sub-folder)
+     -n,   NUGET_CFG_FILE     pass a valid NuGet configuration file to use (netcore)
+     -f,   TARGET FRAMEWORK   ONLY netcore, it specifies target framework.
 
 HEREDOC
 }
@@ -25,11 +26,12 @@ dest=
 type=
 proj=
 nuget=
+nfwk=
 
 # use getopt and store the output into $OPTS
 # note the use of -o for the short options, --long for the long name options
 # and a : for any option that takes a parameter
-OPTS=$(getopt ht:s:d:p:n: $*)
+OPTS=$(getopt ht:s:d:p:n:f: $*)
 if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
 if [ $# -eq 0 ]; then usage; exit 1; fi
 
@@ -45,6 +47,7 @@ while true; do
     -d ) dest="$2"; shift 2 ;;
     -p ) proj="$2"; shift 2 ;;
     -n ) nuget="$2"; shift 2 ;;
+    -f ) nfwk="$2"; shift 2 ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
@@ -84,15 +87,18 @@ elif [[ "$type" == "mkdocs" ]]; then
   cp -R ${src}/site/ ${dst}
 
 elif [[ "$type" == "netcore" ]]; then
+  echo DT_TARGET_FRAMEWORK=$nfwk >> env-list
 
-  if [[ "$nuget" != "" ]] && [[ -f "$nuget" ]]; then
-    cp $nuget ${src}/dt-build-project-nuget.config
-    DELETE_NUGET=1
+    if [[ "$nuget" != "" ]] && [[ -f "$nuget" ]]; then
+      cp $nuget ${src}/dt-build-project-nuget.config
+      DELETE_NUGET=1
+    fi
+
+    docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-netcore
+
+    if [[ $DELETE_NUGET == 1 ]]; then rm ${src}/dt-build-project-nuget.config; fi
+
   fi
-
-  docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-netcore
-
-  if [[ $DELETE_NUGET == 1 ]]; then rm ${src}/dt-build-project-nuget.config; fi
 
   # copy artifact
   if [[ "$proj" != "" ]]; then
