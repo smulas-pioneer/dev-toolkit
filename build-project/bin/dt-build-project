@@ -98,17 +98,15 @@ elif [[ "$type" == "netcore" ]]; then
 
     if [[ $DELETE_NUGET == 1 ]]; then rm ${src}/dt-build-project-nuget.config; fi
 
-  fi
+fi
 
-  # copy artifact
-  if [[ "$proj" != "" ]]; then
-    cp -R ${src}/${proj}/build/ ${dst}
-    rm -rf ${src}/${proj}/build
-  else
-    cp -R ${src}/build/ ${dst}
-    rm -rf ${src}/build/
-  fi
-
+# copy artifact
+if [[ "$proj" != "" ]]; then
+  cp -R ${src}/${proj}/build/ ${dst}
+  rm -rf ${src}/${proj}/build
+else
+  cp -R ${src}/build/ ${dst}
+  rm -rf ${src}/build/
 fi
 
 rm "$current_dir/env-list"
