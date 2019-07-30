@@ -8,11 +8,12 @@ function usage()
    Usage: $progname [-t PROJECT_TYPE] [-s SOURCE] [-d DESTINATION]
 
    optional arguments:
-     -h,                 show this help message and exit
-     -t,   PROJECT_TYPE  available types [react, netcore]
-     -s,   SOURCE        source folder
-     -d,   DESTINATION   destination folder
-     -p,   PROJECT_NAME  pass a valid project name if needed (source sub-folder)
+     -h,                  show this help message and exit
+     -t,   PROJECT_TYPE   available types [react, netcore]
+     -s,   SOURCE         source folder
+     -d,   DESTINATION    destination folder
+     -p,   PROJECT_NAME   pass a valid project name if needed (source sub-folder)
+     -n,   NUGET_CFG_FILE pass a valid NuGet configuration file to use (netcore)
 
 HEREDOC
 }
@@ -23,11 +24,12 @@ src=
 dest=
 type=
 proj=
+nuget=
 
 # use getopt and store the output into $OPTS
 # note the use of -o for the short options, --long for the long name options
 # and a : for any option that takes a parameter
-OPTS=$(getopt ht:s:d:p: $*)
+OPTS=$(getopt ht:s:d:p:n: $*)
 if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
 if [ $# -eq 0 ]; then usage; exit 1; fi
 
@@ -42,6 +44,7 @@ while true; do
     -s ) src="$2"; shift 2 ;;
     -d ) dest="$2"; shift 2 ;;
     -p ) proj="$2"; shift 2 ;;
+    -n ) nuget="$2"; shift 2 ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
@@ -66,31 +69,34 @@ echo http_proxy=$http_proxy >> env-list
 echo https_proxy=$http_proxy >> env-list
 echo no_proxy=$no_proxy >> env-list
 
+current_dir=$(pwd)
+
 if [[ "$type" == "react" ]]; then
   # react compile
   docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-react
   # copy artifact
   cp -R ${src}/build/ ${dst}
-fi
 
+elif [[ "$type" == "netcore" ]]; then
 
-if [[ "$type" == "netcore" ]]; then
-
-  if [ ! -f "$src/Nuget.Config" ]; then
-    cp ~/.nuget/NuGet/NuGet.Config ${src}
+  if [[ "$nuget" != "" ]] && [[ -f "$nuget" ]]; then
+    cp $nuget ${src}/dt-build-project-nuget.config
     DELETE_NUGET=1
   fi
 
   docker run -v ${src}:/home -w /home --env-file=./env-list --rm dev-toolkit-build-project-netcore
 
-  if [[ $DELETE_NUGET == 1 ]]; then rm ${src}/NuGet.Config; fi
+  if [[ $DELETE_NUGET == 1 ]]; then rm ${src}/dt-build-project-nuget.config; fi
 
   # copy artifact
   if [[ "$proj" != "" ]]; then
     cp -R ${src}/${proj}/build/ ${dst}
+    rm -rf ${src}/${proj}/build
   else
     cp -R ${src}/build/ ${dst}
+    rm -rf ${src}/build/
   fi
+
 fi
 
-rm ./env-list
+rm "$current_dir/env-list"
