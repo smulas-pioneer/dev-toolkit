@@ -77,6 +77,12 @@ if [[ "$type" == "react" ]]; then
   # copy artifact
   cp -R ${src}/build/ ${dst}
 
+elif [[ "$type" == "mkdocs" ]]; then
+  # mkdocs compile
+  docker run -v $(pwd):/home/user --rm thinkcube/mkdocs mkdocs build
+  # copy artifact
+  cp -R ${src}/site/ ${dst}
+
 elif [[ "$type" == "netcore" ]]; then
 
   if [[ "$nuget" != "" ]] && [[ -f "$nuget" ]]; then
