@@ -69,7 +69,7 @@ namespace __DT_PROJECT_NAME.WebApi {
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
             if (env.IsDevelopment()) {
-                if (Configuration.GetValue<bool>("Cors:Enable")) {
+                if (Configuration.GetValue<bool>("Cors:Enabled")) {
                     app.UseCors(pb => pb.WithOrigins("http://localhost:3000")
                                         .AllowAnyMethod()
                                         .AllowAnyHeader()
