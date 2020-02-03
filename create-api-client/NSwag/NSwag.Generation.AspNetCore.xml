@@ -30,6 +30,10 @@
             <returns>The <see cref="T:NSwag.OpenApiDocument" />.</returns>
             <exception cref="T:System.InvalidOperationException">The operation has more than one body parameter.</exception>
         </member>
+        <member name="M:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.GetSystemTextJsonSettings">
+            <summary>Gets the default serializer settings representing System.Text.Json.</summary>
+            <returns>The settings.</returns>
+        </member>
         <member name="T:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings">
             <summary>Settings for the <see cref="T:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator"/>.</summary>
         </member>

@@ -208,6 +208,9 @@
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkAngularModel.UseHttpClient">
             <summary>Gets a value indicating whether to use HttpClient with the Angular template.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkAngularModel.WithCredentials">
+            <summary>Gets a value indicating whether to send withCredentials: true with the http request options.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkAngularModel.UseSingletonProvider">
             <summary>Gets a value indicating whether to use the Angular 6 Singleton Provider (Angular template only, default: false).</summary>
         </member>
@@ -508,6 +511,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.HttpClass">
             <summary>Gets or sets the HTTP service class (applies only for the Angular template, default: HttpClient).</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.WithCredentials">
+            <summary>Gets or sets a value indicating whether to set the withCredentials flag.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.RxJsVersion">
             <summary>Gets the RxJs version (Angular template only, default: 6.0).</summary>

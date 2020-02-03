@@ -466,6 +466,12 @@
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDate">
             <summary>Gets a value indicating whether the parameter is of type date.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDateTime">
+            <summary>Gets a value indicating whether the parameter is of type date-time</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDateOrDateTime">
+            <summary>Gets a value indicating whether the parameter is of type date-time or date</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsArray">
             <summary>Gets a value indicating whether the parameter is of type array.</summary>
         </member>
@@ -480,6 +486,12 @@
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDictionary">
             <summary>Gets a value indicating whether the parameter is of type dictionary.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDateTimeArray">
+            <summary>Gets a value indicating whether the parameter is of type date-time array.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDateOrDateTimeArray">
+            <summary>Gets a value indicating whether the parameter is of type date-time or date array.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDateArray">
             <summary>Gets a value indicating whether the parameter is of type date array.</summary>
@@ -567,7 +579,7 @@
             <summary>Gets a value indicating whether the response is of type date.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ResponseModelBase.IsPlainText">
-            <summary>Gets a value indicating whether this is a text/plain response.</summary>
+            <summary>Gets a value indicating whether the response requires a text/plain content.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ResponseModelBase.IsFile">
             <summary>Gets a value indicating whether this is a file response.</summary>

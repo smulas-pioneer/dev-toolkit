@@ -383,7 +383,7 @@
         <member name="M:NSwag.Generation.Processors.Security.SecurityDefinitionAppender.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},NSwag.OpenApiSecurityScheme)">
             <summary>Initializes a new instance of the <see cref="T:NSwag.Generation.Processors.Security.SecurityDefinitionAppender" /> class.</summary>
             <param name="name">The name/key of the security scheme/definition.</param>
-            <param name="scopeNames">The scope names to add to as security requirement with the scheme name in the 'security' property (can be an empty list).</param>
+            <param name="globalScopeNames">The global scope names to add to as security requirement with the scheme name in the document's 'security' property (can be an empty list).</param>
             <param name="swaggerSecurityScheme">The Swagger security scheme.</param>
         </member>
         <member name="M:NSwag.Generation.Processors.Security.SecurityDefinitionAppender.Process(NSwag.Generation.Processors.Contexts.DocumentProcessorContext)">

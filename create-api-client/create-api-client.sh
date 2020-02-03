@@ -66,7 +66,7 @@ if [[ "$swag" != "" ]] && [[ "$lang" != "" ]]; then
     if [ "$lang" == "cs" ]; then
       vlang="C#"
       slang="swagger2csclient"
-      swagCodeOpts="/Namespace:$ns /ClassStyle:Poco /ArrayType:System.Collections.Generic.IEnumerable /UseHttpClientCreationMethod:true"
+      swagCodeOpts="/Namespace:$ns /ClassStyle:Poco /ArrayType:System.Collections.Generic.IEnumerable /UseHttpClientCreationMethod:true /InjectHttpClient:false /ConfigurationClass:${ns}.ApiConfiguration /ClientBaseClass:BaseClient"
     fi
   fi
 fi
@@ -74,7 +74,7 @@ fi
 if [ "$vlang" == "" ]; then usage; exit 1; fi
 
 echo "$vlang client reading schema from: $swag and writing output to: $output"
-#echo "[DEBUG] $swagCodeOpts"
+echo "[DEBUG] $swagCodeOpts"
 
 mono /app/nswag/NSwag.exe $slang /Input:"$swag" /Output:"$output" $swagCodeOpts
 

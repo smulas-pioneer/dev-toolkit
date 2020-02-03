@@ -96,8 +96,14 @@
         <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.ParameterDateTimeFormat">
             <summary>Gets or sets the format for DateTime type method parameters (default: "s").</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.ParameterDateFormat">
+            <summary>Gets or sets the format for Date type method parameters (default: "yyyy-MM-dd").</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.GenerateUpdateJsonSerializerSettingsMethod">
             <summary>Gets or sets a value indicating whether to generate the UpdateJsonSerializerSettings method (must be implemented in the base class otherwise, default: true).</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.UseRequestAndResponseSerializationSettings">
+            <summary>Gets or sets a value indicating whether to generate different request and response serialization settings (default: false).</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.SerializeTypeInformation">
             <summary>Gets or sets a value indicating whether to serialize the type information in a $type property (not recommended, also sets TypeNameHandling = Auto).</summary>
@@ -179,6 +185,9 @@
         <member name="P:NSwag.CodeGeneration.CSharp.CSharpControllerGeneratorSettings.UseActionResultType">
             <summary>Gets or sets a value indicating whether ASP.Net Core (2.1) ActionResult type is used (default: false).</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.CSharpControllerGeneratorSettings.BasePath">
+            <summary>Gets or sets the base path on which the API is served, which is relative to the Host.</summary>
+        </member>
         <member name="T:NSwag.CodeGeneration.CSharp.CSharpGeneratorBase">
             <summary>The CSharp generator base class.</summary>
         </member>
@@ -194,6 +203,12 @@
             <param name="isNullable">Specifies whether the type is nullable..</param>
             <param name="typeNameHint">The type name hint.</param>
             <returns>The type name.</returns>
+        </member>
+        <member name="M:NSwag.CodeGeneration.CSharp.CSharpGeneratorBase.GetBinaryResponseTypeName">
+            <summary>
+            Gets name of type for binary response
+            </summary>
+            <returns>FileResponse by default, FileResult if ControllerTarger parameter is AspNetCore</returns>
         </member>
         <member name="M:NSwag.CodeGeneration.CSharp.CSharpGeneratorBase.CreateResolverWithExceptionSchema(NJsonSchema.CodeGeneration.CSharp.CSharpGeneratorSettings,NSwag.OpenApiDocument)">
             <summary>Creates a new resolver, adds the given schema definitions and registers an exception schema if available.</summary>
@@ -328,11 +343,17 @@
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.ParameterDateTimeFormat">
             <summary>Gets or sets the format for DateTime type method parameters.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.ParameterDateFormat">
+            <summary>Gets or sets the format for Date type method parameters.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.ExposeJsonSerializerSettings">
             <summary>Gets or sets a value indicating whether to expose the JsonSerializerSettings property.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.GenerateUpdateJsonSerializerSettingsMethod">
             <summary>Gets or sets a value indicating whether to generate the UpdateJsonSerializerSettings method.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.UseRequestAndResponseSerializationSettings">
+            <summary>Gets or sets a value indicating whether to generate different request and response serialization settings (default: false).</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.SerializeTypeInformation">
             <summary>Gets or sets a value indicating whether to serialize the type information in a $type property (not recommended, also sets TypeNameHandling = Auto).</summary>

@@ -4,6 +4,21 @@
         <name>NSwag.Annotations</name>
     </assembly>
     <members>
+        <member name="T:NSwag.Annotations.OpenApiBodyParameterAttribute">
+            <summary>Specifies that the operation consumes the POST body.</summary>
+        </member>
+        <member name="M:NSwag.Annotations.OpenApiBodyParameterAttribute.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiBodyParameterAttribute"/> class.</summary>
+        </member>
+        <member name="M:NSwag.Annotations.OpenApiBodyParameterAttribute.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiBodyParameterAttribute"/> class.</summary>
+            <param name="mimeType">The expected mime type.</param>
+        </member>
+        <member name="P:NSwag.Annotations.OpenApiBodyParameterAttribute.MimeType">
+            <summary>
+            Gets the expected body mime type.
+            </summary>
+        </member>
         <member name="T:NSwag.Annotations.OpenApiExtensionDataAttribute">
             <summary>Indicates extension data to be added to the Swagger definition.</summary>
             <remarks>Requires the SwaggerExtensionDataOperationProcessor to be used in the Swagger definition generation.</remarks>
@@ -43,11 +58,28 @@
             <summary>Excludes an action method from the generated Swagger specification.</summary>
         </member>
         <member name="T:NSwag.Annotations.OpenApiOperationAttribute">
-            <summary>Specifies the operation id.</summary>
+            <summary>Specifies the operation id, summary and description</summary>
         </member>
         <member name="M:NSwag.Annotations.OpenApiOperationAttribute.#ctor(System.String)">
-            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.SwaggerOperationAttribute"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiOperationAttribute"/> class.</summary>
             <param name="operationId">The operation ID.</param>
+        </member>
+        <member name="M:NSwag.Annotations.OpenApiOperationAttribute.#ctor(System.String,System.String)">
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiOperationAttribute"/> class.</summary>
+            <param name="summary">The operation summary.</param>
+            /// <param name="description">The operation description.</param>
+        </member>
+        <member name="M:NSwag.Annotations.OpenApiOperationAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiOperationAttribute"/> class.</summary>
+            /// <param name="operationId">The operation ID.</param>
+            <param name="summary">The operation summary.</param>
+            /// <param name="description">The operation description.</param>
+        </member>
+        <member name="P:NSwag.Annotations.OpenApiOperationAttribute.Summary">
+            <summary>Gets or sets the operation summary.</summary>
+        </member>
+        <member name="P:NSwag.Annotations.OpenApiOperationAttribute.Description">
+            <summary>Gets or sets the operation description.</summary>
         </member>
         <member name="T:NSwag.Annotations.SwaggerOperationAttribute">
             <summary>Specifies the operation id.</summary>

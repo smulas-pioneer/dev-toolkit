@@ -820,6 +820,9 @@
         <member name="P:NSwag.OpenApiPathItem.Parameters">
             <summary>Gets or sets the parameters.</summary>
         </member>
+        <member name="P:NSwag.OpenApiPathItem.ExtensionData">
+            <summary>Gets or sets the extension data (i.e. additional properties which are not directly defined by the JSON object).</summary>
+        </member>
         <member name="T:NSwag.OpenApiRequestBody">
             <summary>The OpenApi request body (OpenAPI only).</summary>
         </member>

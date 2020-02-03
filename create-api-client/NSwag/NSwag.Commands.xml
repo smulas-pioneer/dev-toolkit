@@ -349,6 +349,12 @@
         <member name="F:NSwag.Commands.Runtime.NetCore22">
             <summary>.NET Core 2.2 app.</summary>
         </member>
+        <member name="F:NSwag.Commands.Runtime.NetCore30">
+            <summary>.NET Core 3.0 app.</summary>
+        </member>
+        <member name="F:NSwag.Commands.Runtime.NetCore31">
+            <summary>.NET Core 3.1 app.</summary>
+        </member>
         <member name="F:NSwag.Commands.Runtime.Debug">
             <summary>Execute in the same proces.</summary>
         </member>
