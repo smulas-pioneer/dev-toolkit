@@ -19,7 +19,7 @@ public class BaseClient {
         _config = config;
     }
 
-    protected async Task<HttpClient> CreateHttpClientAsync(CancellationToken cancellation) {
+    protected Task<HttpClient> CreateHttpClientAsync(CancellationToken cancellation) {
 
         var clientHandler = new HttpClientHandler
         {
@@ -38,6 +38,6 @@ public class BaseClient {
             };
             clientHandler.Proxy = proxy;
         }
-        return new HttpClient(clientHandler);
+        return Task.FromResult(new HttpClient(clientHandler));
     }
 }
