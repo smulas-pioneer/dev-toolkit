@@ -10,6 +10,7 @@ public class ApiConfiguration {
     public ICredentials ProxyCredentials { get; set; } = CredentialCache.DefaultNetworkCredentials;
     public bool UseProxy { get; set; }
     public string ProxyAddress { get; set; }
+    public bool SkipSslCheck { get; set; }
 }
 
 public class BaseClient {
@@ -37,6 +38,9 @@ public class BaseClient {
                 Credentials = _config.ProxyCredentials
             };
             clientHandler.Proxy = proxy;
+        }
+        if (_config.SkipSslCheck) {
+            clientHandler.ServerCertificateCustomValidationCallback = (request, cert, chain, errors) => true;
         }
         return Task.FromResult(new HttpClient(clientHandler));
     }
