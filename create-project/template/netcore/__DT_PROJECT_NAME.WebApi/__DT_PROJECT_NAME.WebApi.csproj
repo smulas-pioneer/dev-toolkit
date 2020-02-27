@@ -7,6 +7,11 @@
     <Version>1.0.0</Version>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Include="dharma.yaml" Condition=" '$(Configuration)' == 'Debug' ">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

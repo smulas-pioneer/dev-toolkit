@@ -59,10 +59,10 @@ namespace __DT_PROJECT_NAME.WebApi {
                     Description = "__DT_PROJECT_NAME Web Api"
                 });
                 options.CustomOperationIds(ad => $"{ad.ActionDescriptor.RouteValues["controller"]}_{ad.ActionDescriptor.RouteValues["action"]}");
-                // Set the comments path for the swagger json and ui.
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var xmlPath = Path.Combine(basePath, "__DT_PROJECT_NAME.WebApi.xml");
-                if (File.Exists(xmlPath)) options.IncludeXmlComments(xmlPath);
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);
             });
         }
 
