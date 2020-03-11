@@ -8,4 +8,4 @@ fi
 
 docker build --quiet -t dev-toolkit-create-api-client . > /dev/null
 
-cp ./bin/* /usr/local/bin
+#cp ./bin/* /usr/local/bin
