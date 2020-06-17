@@ -39,6 +39,13 @@
             <param name="context"></param>
             <returns>true if the operation should be added to the Swagger specification.</returns>
         </member>
+        <member name="M:NSwag.Generation.WebApi.Processors.OperationParameterProcessor.UpdateNullableRawOperationParameters(NSwag.OpenApiOperationDescription,NJsonSchema.SchemaType)">
+            <summary>
+            Sets the IsNullableRaw property of parameters to null for OpenApi3 schemas.
+            </summary>
+            <param name="operationDescription">Operation to check.</param>
+            <param name="schemaType">Schema type.</param>
+        </member>
         <member name="T:NSwag.Generation.WebApi.Processors.OperationResponseProcessor">
             <summary>Generates the operation's response objects based on reflection and the ResponseTypeAttribute, SwaggerResponseAttribute and ProducesResponseTypeAttribute attributes.</summary>
         </member>

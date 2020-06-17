@@ -48,6 +48,9 @@
         <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.ClientBaseClass">
             <summary>Gets or sets the full name of the base class.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.ClientBaseInterface">
+            <summary>Gets or sets the full name of the base interface.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.ConfigurationClass">
             <summary>Gets or sets the full name of the configuration class (<see cref="P:NSwag.CodeGeneration.CSharp.CSharpClientGeneratorSettings.ClientBaseClass"/> must be set).</summary>
         </member>
@@ -304,6 +307,12 @@
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.GenerateClientInterfaces">
             <summary>Gets a value indicating whether to generate client interfaces.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.ClientBaseInterface">
+            <summary>Gets client base interface.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.HasClientBaseInterface">
+            <summary>Gets a value indicating whether client interface has a base interface.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.HasBaseUrl">
             <summary>Gets a value indicating whether the document has a BaseUrl specified.</summary>
         </member>
@@ -363,6 +372,15 @@
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.JsonSerializerParameterCode">
             <summary>Gets the JSON serializer parameter code.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.Title">
+            <summary>Gets the Title.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.Description">
+            <summary>Gets the Description.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.Version">
+            <summary>Gets the API version.</summary>
         </member>
         <member name="T:NSwag.CodeGeneration.CSharp.Models.CSharpControllerOperationModel">
             <summary>The CSharp controller operation model.</summary>

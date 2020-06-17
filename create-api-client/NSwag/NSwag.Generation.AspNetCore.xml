@@ -30,7 +30,7 @@
             <returns>The <see cref="T:NSwag.OpenApiDocument" />.</returns>
             <exception cref="T:System.InvalidOperationException">The operation has more than one body parameter.</exception>
         </member>
-        <member name="M:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.GetSystemTextJsonSettings">
+        <member name="M:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.GetSystemTextJsonSettings(System.IServiceProvider)">
             <summary>Gets the default serializer settings representing System.Text.Json.</summary>
             <returns>The settings.</returns>
         </member>
@@ -53,6 +53,12 @@
         </member>
         <member name="P:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings.PostProcess">
             <summary>Gets or sets the Swagger post process action.</summary>
+        </member>
+        <member name="P:NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings.UseRouteNameAsOperationId">
+            <summary>
+            Gets or sets a value indicating whether a route name associated with an action is used to generate its operationId.
+            </summary>
+            <remarks>If <see cref="!:NSwag.Annotations.SwaggerOperationAttribute"/> is present, it will be preferred over the route name irrespective of this property.</remarks>
         </member>
         <member name="T:NSwag.Generation.AspNetCore.AspNetCoreOperationProcessorContext">
             <summary>The <see cref="T:NSwag.Generation.Processors.IOperationProcessor"/> context that use <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription"/>.</summary>

@@ -118,6 +118,26 @@
             <param name="host">The host.</param>
             <returns>The output.</returns>
         </member>
+        <member name="T:NSwag.Commands.NewLineBehavior">
+            <summary>
+            Enumeratoin of new line behaviors.
+            </summary>
+        </member>
+        <member name="F:NSwag.Commands.NewLineBehavior.Auto">
+            <summary>
+            Automatic line ending based on the current OS.
+            </summary>
+        </member>
+        <member name="F:NSwag.Commands.NewLineBehavior.CRLF">
+            <summary>
+            CRLF.
+            </summary>
+        </member>
+        <member name="F:NSwag.Commands.NewLineBehavior.LF">
+            <summary>
+            LF.
+            </summary>
+        </member>
         <member name="T:NSwag.Commands.NSwagCommandProcessor">
             <summary></summary>
         </member>
@@ -133,9 +153,6 @@
         <member name="T:NSwag.Commands.NSwagDocument">
             <summary>The NSwagDocument implementation.</summary>
             <seealso cref="T:NSwag.Commands.NSwagDocumentBase" />
-        </member>
-        <member name="P:NSwag.Commands.NSwagDocument.RootBinaryDirectory">
-            <summary>Gets or sets the root binary directory where the command line executables loaded from.</summary>
         </member>
         <member name="M:NSwag.Commands.NSwagDocument.#ctor">
             <summary>Initializes a new instance of the <see cref="T:NSwag.Commands.NSwagDocument"/> class.</summary>

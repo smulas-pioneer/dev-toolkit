@@ -19,6 +19,16 @@
             Gets the expected body mime type.
             </summary>
         </member>
+        <member name="T:NSwag.Annotations.OpenApiControllerAttribute">
+            <summary>Describes the controller.</summary>
+        </member>
+        <member name="M:NSwag.Annotations.OpenApiControllerAttribute.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiOperationAttribute"/> class.</summary>
+            <param name="name">The controller name used in OpenAPI specs (will be the generated client class name in NSwag).</param>
+        </member>
+        <member name="P:NSwag.Annotations.OpenApiControllerAttribute.Name">
+            <summary>Gets or sets the controller name used in OpenAPI specs (will be the generated client class name in NSwag).</summary>
+        </member>
         <member name="T:NSwag.Annotations.OpenApiExtensionDataAttribute">
             <summary>Indicates extension data to be added to the Swagger definition.</summary>
             <remarks>Requires the SwaggerExtensionDataOperationProcessor to be used in the Swagger definition generation.</remarks>

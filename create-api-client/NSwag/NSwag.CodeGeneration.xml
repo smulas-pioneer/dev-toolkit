@@ -430,6 +430,9 @@
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDeepObject">
             <summary>Gets a value indicating whether the parameter is a deep object (OpenAPI 3).</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsForm">
+            <summary>Gets a value indicating whether the parameter has form style.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.PropertyNames">
             <summary>Gets the contained value property names (OpenAPI 3).</summary>
         </member>
@@ -462,6 +465,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsXmlBodyParameter">
             <summary>Gets a value indicating whether this is an XML body parameter.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsBinaryBodyParameter">
+            <summary>Gets a value indicating whether this is an binary body parameter.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsDate">
             <summary>Gets a value indicating whether the parameter is of type date.</summary>
@@ -498,6 +504,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsObjectArray">
             <summary>Gets a value indicating whether the parameter is of type object array.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsObject">
+            <summary>Gets a value indicating whether the parameter is of type object</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.Models.ParameterModelBase.IsBody">
             <summary>Gets a value indicating whether the parameter is of type object.</summary>
