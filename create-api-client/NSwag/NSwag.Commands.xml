@@ -154,6 +154,9 @@
             <summary>The NSwagDocument implementation.</summary>
             <seealso cref="T:NSwag.Commands.NSwagDocumentBase" />
         </member>
+        <member name="P:NSwag.Commands.NSwagDocument.RootBinaryDirectory">
+            <summary>Gets or sets the root binary directory where the command line executables loaded from.</summary>
+        </member>
         <member name="M:NSwag.Commands.NSwagDocument.#ctor">
             <summary>Initializes a new instance of the <see cref="T:NSwag.Commands.NSwagDocument"/> class.</summary>
         </member>

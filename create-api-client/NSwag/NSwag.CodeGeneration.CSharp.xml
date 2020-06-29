@@ -527,6 +527,9 @@
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpFileTemplateModel.NamespaceUsages">
             <summary>Gets the all the namespace usages.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpFileTemplateModel.GenerateNullableReferenceTypes">
+            <summary>Gets a value indicating whether the C#8 nullable reference types are enabled for this file.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpFileTemplateModel.GenerateContracts">
             <summary>Gets a value indicating whether to generate contract code.</summary>
         </member>
@@ -590,6 +593,11 @@
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpOperationModel.HasResult">
             <summary>Gets a value indicating whether the operation has a result type.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpOperationModel.UnwrappedResultDefaultValue">
+            <summary>
+            The default value of the result type, i.e. default(T) or default(T)! depending on whether NRT are enabled.
+            </summary>
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpOperationModel.SyncResultType">
             <summary>Gets or sets the synchronous type of the result.</summary>
@@ -682,6 +690,9 @@
             <summary>Initializes a new instance of the <see cref="T:NSwag.CodeGeneration.CSharp.Models.CSharpTemplateModelBase"/> class.</summary>
             <param name="controllerName">Name of the controller.</param>
             <param name="settings">The settings.</param>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpTemplateModelBase.GenerateNullableReferenceTypes">
+            <summary>Gets a value indicating whether the C#8 nullable reference types are enabled for this file.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpTemplateModelBase.WrapResponses">
             <summary>Gets a value indicating whether to wrap success responses to allow full response access.</summary>
