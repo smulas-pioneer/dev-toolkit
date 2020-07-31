@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+@echo "Installing create-api-client..."
+
 cd $(dirname $0)
 
 if [[ "$(docker images -q dev-toolkit-create-api-client 2> /dev/null)" != "" ]]; then
