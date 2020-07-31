@@ -2,7 +2,7 @@
 # the temp directory used, within $DIR
 # omit the -p parameter to create a temporal directory in the default location
 
-TOOL=$TOOL:-all
+TOOL=${TOOL:-"all"}
 
 WORK_DIR=`mktemp -d`
 
@@ -26,6 +26,7 @@ echo Synching dev-toolkit...
 git clone -q --depth 1 https://github.com/vgmr/dev-toolkit.git $WORK_DIR
 
 cd $WORK_DIR
+
 ./install.sh $TOOL
 
 echo done.
