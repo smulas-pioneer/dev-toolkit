@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-@echo "Installing build-project..."
+echo "Installing build-project..."
 
 cd $(dirname $0)
 

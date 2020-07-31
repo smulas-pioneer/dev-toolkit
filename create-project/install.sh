@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-@echo "Installing create-project..."
+echo "Installing create-project..."
 
 cd $(dirname $0)
 

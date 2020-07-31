@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-@echo "Installing create-api-client..."
+echo "Installing create-api-client..."
 
 cd $(dirname $0)
 
