@@ -20,14 +20,17 @@ help: ## display enhanced help message
 run-server: ## run django server
 	${MANAGE} runserver
 
+requirements: ## install requirements from requirements.txt
+	pip install -r requirements.txt
+
 ##
 ## DB targets
 ##
 
-showmigrations: ## SHOW MIGRATIONS  
+showmigrations: ## SHOW MIGRATIONS
 	${MANAGE} showmigrations
 
-migrate: ## APPLY MIGRATIONS  
+migrate: ## APPLY MIGRATIONS
 	${MANAGE} migrate
 
 dbshell: ## DB SHELL
@@ -36,6 +39,6 @@ dbshell: ## DB SHELL
 createsuperuser: ## CREATE SUPER USER
 	${MANAGE} createsuperuser
 
-makemigrations: ## MAKE MIGRATIONS  
+makemigrations: ## MAKE MIGRATIONS
 	${MANAGE} makemigrations
-   
+
