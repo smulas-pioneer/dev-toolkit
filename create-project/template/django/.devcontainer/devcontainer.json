@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/python-3
 {
-  "name": "Django",
+  "name": "__DT_PROJECT_NAME",
   "dockerComposeFile": "docker-compose.yml",
   "service": "django-dev",
   "workspaceFolder": "/workspace",
