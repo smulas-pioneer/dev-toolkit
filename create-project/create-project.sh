@@ -9,7 +9,7 @@ function usage()
    optional arguments:
      -h, --help                       show this help message and exit
      -n, --name       PROJECT_NAME    pass a valid project name
-     -t, --type       PROJECT_TYPE    available types [react, netcore, mkdocs]
+     -t, --type       PROJECT_TYPE    available types [react, netcore, mkdocs, django]
 
 HEREDOC
 }
@@ -44,7 +44,7 @@ echo Creating project "$name"...
 
 if [ ! -d "/app/template/$type" ]; then usage; exit 1; fi
 
-cp -r /app/template/$type ./$name
+cp -a /app/template/$type ./$name
 
 shopt -s globstar nullglob
 
