@@ -54,6 +54,7 @@ RUN apt-get update \
   # make and text editors
   && apt-get install -y build-essential vim nano \
   && apt-get install -y python3-pip \
+  && apt-get install -y pylint \
   #
   # Use Docker script from script library to set things up
   && curl -sSL $DOCKER_SCRIPT_SOURCE -o /tmp/docker-setup.sh \
