@@ -1,6 +1,10 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/python-3/.devcontainer/base.Dockerfile
-ARG VARIANT="3"
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
+#-------------------------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
+#-------------------------------------------------------------------------------------------------------------
+
+# Note: You can use any Debian/Ubuntu based image you want.
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-buster
 
 ENV http_proxy=${http_proxy}
 ENV https_proxy=${https_proxy}
@@ -9,18 +13,60 @@ ENV HTTP_PROXY=${HTTP_PROXY}
 ENV HTTPS_PROXY=${HTTPS_PROXY}
 ENV NO_PROXY=${NO_PROXY}
 
+# This Dockerfile adds a non-root user with sudo access. Use the "remoteUser"
+# property in devcontainer.json to use it. On Linux, the container user's GID/UIDs
+# will be updated to match your local UID/GID (when using the dockerFile property).
+# See https://aka.ms/vscode-remote/containers/non-root-user for details.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
 
-# [Optional] Allow the vscode user to pip install globally w/o sudo
-ENV PIP_TARGET=/usr/local/pip-global
-ENV PYTHONPATH=${PIP_TARGET}:${PYTHONPATH}
-ENV PATH=${PIP_TARGET}/bin:${PATH}
-RUN mkdir -p ${PIP_TARGET} \
-    && chown vscode:root ${PIP_TARGET} \
-    && echo "if [ \"\$(stat -c '%U' ${PIP_TARGET})\" != \"vscode\" ]; then chown -R vscode:root ${PIP_TARGET}; fi" \
-        | tee -a /root/.bashrc /home/vscode/.bashrc /root/.zshrc >> /home/vscode/.zshrc
+# Docker script args, location, and expected SHA - SHA generated on release
+ARG DOCKER_SCRIPT_SOURCE="https://raw.githubusercontent.com/microsoft/vscode-dev-containers/v0.128.0/script-library/docker-debian.sh"
+ARG DOCKER_SCRIPT_SHA="dde4c419e3a8d9ed15f8d11d366fc7ce29817e451b949d5d7c41432d86ae3b59"
+ARG ENABLE_NONROOT_DOCKER="true"
+ARG SOURCE_SOCKET=/var/run/docker-host.sock
+ARG TARGET_SOCKET=/var/run/docker.sock
 
-# Install DJANGO
-RUN python -m pip install django
+RUN apt-get update \
+  && export DEBIAN_FRONTEND=noninteractive \
+  # Verify common dependencies and utilities are installed
+  && apt-get -y install --no-install-recommends apt-utils dialog git openssh-client curl less iproute2 procps 2>&1 \
+  #
+  # Create a non-root user to use if not already available - see https://aka.ms/vscode-remote/containers/non-root-user.
+  && if [ $(getent passwd $USERNAME) ]; then \
+  # If exists, see if we need to tweak the GID/UID
+  if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
+  groupmod --gid $USER_GID $USERNAME \
+  && usermod --uid $USER_UID --gid $USER_GID $USERNAME \
+  && chown -R $USER_UID:$USER_GID /home/$USERNAME; \
+  fi; \
+  else \
+  # Otherwise ccreate the non-root user
+  groupadd --gid $USER_GID $USERNAME \
+  && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
+  # Add sudo support for the non-root user
+  && apt-get install -y sudo \
+  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
+  && chmod 0440 /etc/sudoers.d/$USERNAME; \
+  fi \
+  #
+  # make and text editors
+  && apt-get install -y build-essential vim nano \
+  && apt-get install -y python3-pip \
+  #
+  # Use Docker script from script library to set things up
+  && curl -sSL $DOCKER_SCRIPT_SOURCE -o /tmp/docker-setup.sh \
+  && ([ "${DOCKER_SCRIPT_SHA}" = "dev-mode" ] || (echo "${DOCKER_SCRIPT_SHA} */tmp/docker-setup.sh" | sha256sum -c -)) \
+  && /bin/bash /tmp/docker-setup.sh "${ENABLE_NONROOT_DOCKER}" "${SOURCE_SOCKET}" "${TARGET_SOCKET}" "${USERNAME}" \
+  && rm /tmp/docker-setup.sh \
+  # add also zsh
+  && apt-get install -y zsh \
+  #
+  # Clean up
+  && apt-get autoremove -y \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists/*
 
 # Setup shell
 USER $USERNAME
@@ -29,3 +75,15 @@ ENV ZSH=/home/$USERNAME/.oh-my-zsh \
   EDITOR=vi \
   LANG=it.UTF-8
 RUN printf 'ZSH_THEME="bira"\nENABLE_CORRECTION="false"\nplugins=(git docker docker-compose)\nsource $ZSH/oh-my-zsh.sh' > "/home/$USERNAME/.zshrc"
+
+
+# PYTHON
+RUN sudo update-alternatives --install /usr/bin/python python $(which python3) 2
+RUN sudo update-alternatives --install /usr/bin/pip pip $(which pip3) 2
+RUN python -m pip install django
+
+# Setting the ENTRYPOINT to docker-init.sh will configure non-root access to
+# the Docker socket if "overrideCommand": false is set in devcontainer.json.
+# The script will also execute CMD if you need to alter startup behaviors.
+ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
+CMD [ "sleep", "infinity" ]
