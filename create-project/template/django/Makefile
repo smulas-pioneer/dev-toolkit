@@ -6,6 +6,10 @@ YELLOW="\033[1;33m"
 BLUE="\033[1;34m"
 NOCOLOR="\033[0m\033[K"
 
+COMPOSE=docker-compose -p __DT_PROJECT_NAME_devcontainer -f ${ROOT}.devcontainer/docker-compose.yml
+LOGTAIL=--tail 50
+
+
 .PHONY: help
 .DEFAULT_GOAL := help
 
@@ -42,3 +46,8 @@ createsuperuser: ## CREATE SUPER USER
 makemigrations: ## MAKE MIGRATIONS
 	${MANAGE} makemigrations
 
+##
+## Docker
+##
+ps: ## start mysql db
+	${COMPOSE} ps
