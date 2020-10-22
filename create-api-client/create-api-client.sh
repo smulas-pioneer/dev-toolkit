@@ -13,7 +13,7 @@ function usage()
      -l, --lang       LANGUAGE          pass 'ts' for typescript, 'cs' for C#
      -n, --namespace  C# NAMESPACE      pass a valid c# namespace name to be used in the output
      -o, --output     OUTPUT_FILE       output file
-     -d, --debug                        show command line optons debug informations
+     -d, --debug                        show debug informations
 
 HEREDOC
 }
