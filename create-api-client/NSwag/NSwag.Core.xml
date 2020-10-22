@@ -710,6 +710,9 @@
         <member name="P:NSwag.OpenApiParameter.IsBinaryBodyParameter">
             <summary>Gets a value indicating whether this is a binary body parameter.</summary>
         </member>
+        <member name="P:NSwag.OpenApiParameter.HasBinaryBodyWithMultipleMimeTypes">
+            <summary>Gets a value indicating whether a binary body parameter allows multiple mime types.</summary>
+        </member>
         <member name="T:NSwag.OpenApiParameterCollectionFormat">
             <summary>Defines the collectionFormat of a parameter.</summary>
         </member>
@@ -1036,7 +1039,7 @@
             <summary>Describes an OpenAPI server variable.</summary>
         </member>
         <member name="P:NSwag.OpenApiServerVariable.Enum">
-            <summary>Gets or sets the URL of the server.</summary>
+            <summary>Gets or sets the enum of the server.</summary>
         </member>
         <member name="P:NSwag.OpenApiServerVariable.Default">
             <summary>Gets or sets the variables of the server.</summary>

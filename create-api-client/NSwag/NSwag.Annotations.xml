@@ -8,13 +8,13 @@
             <summary>Specifies that the operation consumes the POST body.</summary>
         </member>
         <member name="M:NSwag.Annotations.OpenApiBodyParameterAttribute.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiBodyParameterAttribute"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiBodyParameterAttribute"/> class with the 'application/json' mime type.</summary>
         </member>
-        <member name="M:NSwag.Annotations.OpenApiBodyParameterAttribute.#ctor(System.String)">
+        <member name="M:NSwag.Annotations.OpenApiBodyParameterAttribute.#ctor(System.String[])">
             <summary>Initializes a new instance of the <see cref="T:NSwag.Annotations.OpenApiBodyParameterAttribute"/> class.</summary>
-            <param name="mimeType">The expected mime type.</param>
+            <param name="mimeTypes">The expected mime types.</param>
         </member>
-        <member name="P:NSwag.Annotations.OpenApiBodyParameterAttribute.MimeType">
+        <member name="P:NSwag.Annotations.OpenApiBodyParameterAttribute.MimeTypes">
             <summary>
             Gets the expected body mime type.
             </summary>

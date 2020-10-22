@@ -244,6 +244,9 @@
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseMomentJS">
             <summary>Gets a value indicating whether MomentJS is required.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseDayJS">
+            <summary>Gets a value indicating whether DayJS is required.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseRxJs5">
             <summary>Gets a value indicating whether to use RxJs 5.</summary>
         </member>
