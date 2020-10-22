@@ -27,6 +27,7 @@ slang=
 output=
 tplExtCode=
 swagCodeOpts=
+debug=
 
 # use getopt and store the output into $OPTS
 # note the use of -o for the short options, --long for the long name options
@@ -46,6 +47,7 @@ while true; do
     -l | --lang ) lang="$2"; shift 2 ;;
     -n | --namespace ) ns="$2"; shift 2;;
     -o | --output ) output="$2"; shift 2 ;;
+    -d | --debug ) debug="$2"; shift 2;;
     -- ) shift; break ;;
     * ) break ;;
   esac
@@ -74,7 +76,10 @@ fi
 if [ "$vlang" == "" ]; then usage; exit 1; fi
 
 echo "$vlang client reading schema from: $swag and writing output to: $output"
-echo "[DEBUG] $swagCodeOpts"
+
+if [ "$debug" == "true" ]; then
+   echo "[DEBUG] $swagCodeOpts"
+fi
 
 mono /app/nswag/NSwag.exe $slang /Input:"$swag" /Output:"$output" $swagCodeOpts
 
