@@ -13,6 +13,7 @@ function usage()
      -l, --lang       LANGUAGE          pass 'ts' for typescript, 'cs' for C#
      -n, --namespace  C# NAMESPACE      pass a valid c# namespace name to be used in the output
      -o, --output     OUTPUT_FILE       output file
+     -d, --debug                        show command line optons debug informations
 
 HEREDOC
 }
@@ -32,7 +33,7 @@ debug=
 # use getopt and store the output into $OPTS
 # note the use of -o for the short options, --long for the long name options
 # and a : for any option that takes a parameter
-OPTS=$(getopt -o "hs:l:n:o:" --long "help,swag:,lang:,namespace:,output:" -n "$progname" -- "$@")
+OPTS=$(getopt -o "hs:l:n:o:d" --long "help,swag:,lang:,namespace:,output:,debug" -n "$progname" -- "$@")
 if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
 if [ $# -eq 0 ]; then usage; exit 1; fi
 
@@ -47,7 +48,7 @@ while true; do
     -l | --lang ) lang="$2"; shift 2 ;;
     -n | --namespace ) ns="$2"; shift 2;;
     -o | --output ) output="$2"; shift 2 ;;
-    -d | --debug ) debug="$2"; shift 2;;
+    -d | --debug ) debug="true"; shift;;
     -- ) shift; break ;;
     * ) break ;;
   esac
