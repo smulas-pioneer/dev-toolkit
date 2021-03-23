@@ -193,6 +193,9 @@
         <member name="T:NSwag.OpenApiCallback">
             <summary>Describes an OpenAPI callback.</summary>
         </member>
+        <member name="P:NSwag.OpenApiCallback.ActualCallback">
+            <summary>Gets the actual callback, either this or the referenced example.</summary>
+        </member>
         <member name="T:NSwag.OpenApiComponents">
             <summary>Container for reusable components (OpenAPI only).</summary>
         </member>
@@ -299,40 +302,46 @@
             <param name="formatting">The formatting.</param>
             <returns>The JSON string.</returns>
         </member>
-        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String)">
+        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.Threading.CancellationToken)">
             <summary>Creates a Swagger specification from a JSON string.</summary>
             <param name="data">The JSON data.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>The <see cref="T:NSwag.OpenApiDocument"/>.</returns>
         </member>
-        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.String)">
+        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.String,System.Threading.CancellationToken)">
             <summary>Creates a Swagger specification from a JSON string.</summary>
             <param name="data">The JSON data.</param>
             <param name="documentPath">The document path (URL or file path) for resolving relative document references.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>The <see cref="T:NSwag.OpenApiDocument"/>.</returns>
         </member>
-        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.String,NJsonSchema.SchemaType)">
+        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.String,NJsonSchema.SchemaType,System.Threading.CancellationToken)">
             <summary>Creates a Swagger specification from a JSON string.</summary>
             <param name="data">The JSON data.</param>
             <param name="documentPath">The document path (URL or file path) for resolving relative document references.</param>
             <param name="expectedSchemaType">The expected schema type which is used when the type cannot be determined.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>The <see cref="T:NSwag.OpenApiDocument"/>.</returns>
         </member>
-        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.String,NJsonSchema.SchemaType,System.Func{NSwag.OpenApiDocument,NJsonSchema.JsonReferenceResolver})">
+        <member name="M:NSwag.OpenApiDocument.FromJsonAsync(System.String,System.String,NJsonSchema.SchemaType,System.Func{NSwag.OpenApiDocument,NJsonSchema.JsonReferenceResolver},System.Threading.CancellationToken)">
             <summary>Creates a Swagger specification from a JSON string.</summary>
             <param name="data">The JSON data.</param>
             <param name="documentPath">The document path (URL or file path) for resolving relative document references.</param>
             <param name="expectedSchemaType">The expected schema type which is used when the type cannot be determined.</param>
             <param name="referenceResolverFactory">The JSON reference resolver factory.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>The <see cref="T:NSwag.OpenApiDocument"/>.</returns>
         </member>
-        <member name="M:NSwag.OpenApiDocument.FromFileAsync(System.String)">
+        <member name="M:NSwag.OpenApiDocument.FromFileAsync(System.String,System.Threading.CancellationToken)">
             <summary>Creates a Swagger specification from a JSON file.</summary>
             <param name="filePath">The file path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>The <see cref="T:NSwag.OpenApiDocument" />.</returns>
         </member>
-        <member name="M:NSwag.OpenApiDocument.FromUrlAsync(System.String)">
+        <member name="M:NSwag.OpenApiDocument.FromUrlAsync(System.String,System.Threading.CancellationToken)">
             <summary>Creates a Swagger specification from an URL.</summary>
             <param name="url">The URL.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>The <see cref="T:NSwag.OpenApiDocument"/>.</returns>
         </member>
         <member name="P:NSwag.OpenApiDocument.Operations">
@@ -406,6 +415,9 @@
         <member name="P:NSwag.OpenApiExample.ExternalValue">
             <summary>Gets or sets the example's external value.</summary>
         </member>
+        <member name="P:NSwag.OpenApiExample.ActualExample">
+            <summary>Gets the actual example, either this or the referenced example.</summary>
+        </member>
         <member name="T:NSwag.OpenApiExternalDocumentation">
             <summary>The external documentation description.</summary>
         </member>
@@ -468,6 +480,9 @@
         </member>
         <member name="P:NSwag.OpenApiLink.Server">
             <summary>Gets or sets the server.</summary>
+        </member>
+        <member name="P:NSwag.OpenApiLink.ActualLink">
+            <summary>Gets the actual link, either this or the referenced example.</summary>
         </member>
         <member name="T:NSwag.OpenApiMediaType">
             <summary>The Swagger media type (OpenAPI only).</summary>
@@ -803,13 +818,16 @@
             <summary>Simple way of rendering nested objects using form parameters (applies to objects only)</summary>
         </member>
         <member name="T:NSwag.OpenApiPathItem">
-            <summary>A Swagger path, the key is usually a value of <see cref="T:NSwag.OpenApiOperationMethod"/>.</summary>
+            <summary>An OpenApi path, the key is usually a value of <see cref="T:NSwag.OpenApiOperationMethod"/>.</summary>
         </member>
         <member name="M:NSwag.OpenApiPathItem.#ctor">
             <summary>Initializes a new instance of the <see cref="T:NSwag.OpenApiPathItem"/> class.</summary>
         </member>
         <member name="P:NSwag.OpenApiPathItem.Parent">
             <summary>Gets the parent <see cref="T:NSwag.OpenApiDocument"/>.</summary>
+        </member>
+        <member name="P:NSwag.OpenApiPathItem.ActualPathItem">
+            <summary>Gets the actual response, either this or the referenced response.</summary>
         </member>
         <member name="P:NSwag.OpenApiPathItem.Summary">
             <summary>Gets or sets the summary (OpenApi only).</summary>
@@ -825,6 +843,18 @@
         </member>
         <member name="P:NSwag.OpenApiPathItem.ExtensionData">
             <summary>Gets or sets the extension data (i.e. additional properties which are not directly defined by the JSON object).</summary>
+        </member>
+        <member name="P:NSwag.OpenApiPathItem.DocumentPath">
+            <summary>Gets the document path (URI or file path) for resolving relative references.</summary>
+        </member>
+        <member name="P:NSwag.OpenApiPathItem.NJsonSchema#References#IJsonReferenceBase#ReferencePath">
+            <summary>Gets or sets the type reference path ($ref). </summary>
+        </member>
+        <member name="P:NSwag.OpenApiPathItem.Reference">
+            <summary>Gets or sets the referenced object.</summary>
+        </member>
+        <member name="P:NSwag.OpenApiPathItem.NJsonSchema#References#IJsonReferenceBase#Reference">
+            <summary>Gets or sets the referenced object.</summary>
         </member>
         <member name="T:NSwag.OpenApiRequestBody">
             <summary>The OpenApi request body (OpenAPI only).</summary>

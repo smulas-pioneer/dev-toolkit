@@ -365,6 +365,14 @@
             <summary>Adds the controller name as operation tag.</summary>
             <param name="context">The context.</param>
         </member>
+        <member name="M:NSwag.Generation.Processors.OperationTagsProcessor.SetDescription(NSwag.Generation.Processors.Contexts.OperationProcessorContext,System.String,System.String)">
+            <summary>
+            Sets the description for the given controller on the document.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="controllerName">The controller name.</param>
+            <param name="description">The description.</param>
+        </member>
         <member name="T:NSwag.Generation.Processors.Security.OperationSecurityScopeProcessor">
             <summary>Generates the OAuth2 security scopes for an operation by reflecting the AuthorizeAttribute attributes.</summary>
         </member>

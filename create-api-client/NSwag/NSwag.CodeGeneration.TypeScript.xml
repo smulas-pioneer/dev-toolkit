@@ -106,6 +106,9 @@
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptClientTemplateModel.ExportTypes">
             <summary>Gets whether the export keyword should be added to all classes and enums.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptClientTemplateModel.UseAbortSignal">
+            <summary>Gets a value indicating whether to use the AbortSignal (Fetch template only, default: false).</summary>
+        </member>
         <member name="T:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel">
             <summary>The TypeScript file template model.</summary>
         </member>
@@ -246,6 +249,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseDayJS">
             <summary>Gets a value indicating whether DayJS is required.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseLuxon">
+            <summary>Gets a value indicating whether Luxon is required.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseRxJs5">
             <summary>Gets a value indicating whether to use RxJs 5.</summary>
@@ -511,6 +517,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.ExceptionClass">
             <summary>Gets or sets the name of the exception class (default 'ApiException').</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.UseAbortSignal">
+            <summary>Gets or sets a value indicating whether to use the AbortSignal (Fetch template only, default: false).</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.HttpClass">
             <summary>Gets or sets the HTTP service class (applies only for the Angular template, default: HttpClient).</summary>

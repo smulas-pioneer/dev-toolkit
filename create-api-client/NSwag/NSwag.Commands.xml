@@ -354,15 +354,6 @@
         <member name="F:NSwag.Commands.Runtime.WinX86">
             <summary>Full .NET framework, x86.</summary>
         </member>
-        <member name="F:NSwag.Commands.Runtime.NetCore10">
-            <summary>.NET Core 1.0 app.</summary>
-        </member>
-        <member name="F:NSwag.Commands.Runtime.NetCore11">
-            <summary>.NET Core 1.1 app.</summary>
-        </member>
-        <member name="F:NSwag.Commands.Runtime.NetCore20">
-            <summary>.NET Core 2.0 app.</summary>
-        </member>
         <member name="F:NSwag.Commands.Runtime.NetCore21">
             <summary>.NET Core 2.1 app.</summary>
         </member>
@@ -374,6 +365,9 @@
         </member>
         <member name="F:NSwag.Commands.Runtime.NetCore31">
             <summary>.NET Core 3.1 app.</summary>
+        </member>
+        <member name="F:NSwag.Commands.Runtime.Net50">
+            <summary>.NET 5 app.</summary>
         </member>
         <member name="F:NSwag.Commands.Runtime.Debug">
             <summary>Execute in the same proces.</summary>
