@@ -150,6 +150,11 @@
             <param name="args">The arguments.</param>
             <returns>The result.</returns>
         </member>
+        <member name="M:NSwag.Commands.NSwagCommandProcessor.ProcessAsync(System.String[])">
+            <summary>Processes the command line arguments.</summary>
+            <param name="args">The arguments.</param>
+            <returns>The result.</returns>
+        </member>
         <member name="T:NSwag.Commands.NSwagDocument">
             <summary>The NSwagDocument implementation.</summary>
             <seealso cref="T:NSwag.Commands.NSwagDocumentBase" />
@@ -357,20 +362,17 @@
         <member name="F:NSwag.Commands.Runtime.NetCore21">
             <summary>.NET Core 2.1 app.</summary>
         </member>
-        <member name="F:NSwag.Commands.Runtime.NetCore22">
-            <summary>.NET Core 2.2 app.</summary>
-        </member>
-        <member name="F:NSwag.Commands.Runtime.NetCore30">
-            <summary>.NET Core 3.0 app.</summary>
-        </member>
         <member name="F:NSwag.Commands.Runtime.NetCore31">
             <summary>.NET Core 3.1 app.</summary>
         </member>
         <member name="F:NSwag.Commands.Runtime.Net50">
             <summary>.NET 5 app.</summary>
         </member>
+        <member name="F:NSwag.Commands.Runtime.Net60">
+            <summary>.NET 6 app.</summary>
+        </member>
         <member name="F:NSwag.Commands.Runtime.Debug">
-            <summary>Execute in the same proces.</summary>
+            <summary>Execute in the same process.</summary>
         </member>
         <member name="T:NSwag.Commands.RuntimeUtilities">
             <summary>Provides runtime utilities.</summary>

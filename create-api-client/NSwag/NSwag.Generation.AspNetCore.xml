@@ -58,7 +58,7 @@
             <summary>
             Gets or sets a value indicating whether a route name associated with an action is used to generate its operationId.
             </summary>
-            <remarks>If <see cref="!:NSwag.Annotations.SwaggerOperationAttribute"/> is present, it will be preferred over the route name irrespective of this property.</remarks>
+            <remarks>If <code>SwaggerOperationAttribute</code> is present, it will be preferred over the route name irrespective of this property.</remarks>
         </member>
         <member name="T:NSwag.Generation.AspNetCore.AspNetCoreOperationProcessorContext">
             <summary>The <see cref="T:NSwag.Generation.Processors.IOperationProcessor"/> context that use <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription"/>.</summary>
@@ -80,6 +80,9 @@
         </member>
         <member name="T:NSwag.Generation.AspNetCore.Processors.AspNetCoreOperationTagsProcessor">
             <summary>Processes the SwaggerTagsAttribute on the operation method.</summary>
+        </member>
+        <member name="M:NSwag.Generation.AspNetCore.Processors.AspNetCoreOperationTagsProcessor.Process(NSwag.Generation.Processors.Contexts.OperationProcessorContext)">
+            <inheritdocs />
         </member>
         <member name="M:NSwag.Generation.AspNetCore.Processors.AspNetCoreOperationTagsProcessor.AddControllerNameTag(NSwag.Generation.Processors.Contexts.OperationProcessorContext)">
             <summary>Adds the controller name as operation tag.</summary>

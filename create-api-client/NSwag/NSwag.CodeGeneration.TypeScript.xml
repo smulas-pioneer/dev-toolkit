@@ -107,7 +107,10 @@
             <summary>Gets whether the export keyword should be added to all classes and enums.</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptClientTemplateModel.UseAbortSignal">
-            <summary>Gets a value indicating whether to use the AbortSignal (Fetch template only, default: false).</summary>
+            <summary>Gets a value indicating whether to use the AbortSignal (Fetch/Aurelia template only, default: false).</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptClientTemplateModel.IncludeHttpContext">
+            <summary>Gets a value indicating whether to include the httpContext (Angular template only, default: false).</summary>
         </member>
         <member name="T:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel">
             <summary>The TypeScript file template model.</summary>
@@ -144,6 +147,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel.UseTransformOptionsMethod">
             <summary>Gets a value indicating whether to call 'transformOptions' on the base class or extension class.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel.IncludeHttpContext">
+            <summary>Gets a value indicating whether to include the httpContext parameter (Angular template only, default: false).</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel.Clients">
             <summary>Gets the clients code.</summary>
@@ -259,6 +265,9 @@
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseRxJs6">
             <summary>Gets a value indicating whether to use RxJs 6.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.UseRxJs7">
+            <summary>Gets a value indicating whether to use RxJs 7.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkModel.RxJs">
             <summary>Gets Rxjs information.</summary>
         </member>
@@ -282,6 +291,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkRxJsModel.ObservableThrowMethod">
             <summary>Gets the RxJs observable throw method name.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkRxJsModel.ResponseTextProperty">
+            <summary>Gets the response text property in condition to rxjs version</summary>
         </member>
         <member name="T:NSwag.CodeGeneration.TypeScript.Models.TypeScriptOperationModel">
             <summary>The TypeScript operation model.</summary>
@@ -379,6 +391,11 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptParameterModel.TypePostfix">
             <summary>Gets the type postfix (e.g. ' | null | undefined')</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptParameterModel.GetDateTimeToString">
+            <summary>
+            Format the datetime to a string based on the chosen datetime type setting
+            </summary>
         </member>
         <member name="T:NSwag.CodeGeneration.TypeScript.Models.TypeScriptResponseModel">
             <summary>The TypeScript response model.</summary>
@@ -519,7 +536,7 @@
             <summary>Gets or sets the name of the exception class (default 'ApiException').</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.UseAbortSignal">
-            <summary>Gets or sets a value indicating whether to use the AbortSignal (Fetch template only, default: false).</summary>
+            <summary>Gets or sets a value indicating whether to use the AbortSignal (Fetch/Aurelia template only, default: false).</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.HttpClass">
             <summary>Gets or sets the HTTP service class (applies only for the Angular template, default: HttpClient).</summary>
@@ -535,6 +552,9 @@
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.InjectionTokenType">
             <summary>Gets or sets the injection token type (applies only for the Angular template).</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.IncludeHttpContext">
+            <summary>Gets a value indicating whether to include the httpContext parameter (Angular template only, default: false).</summary>
         </member>
         <member name="T:NSwag.CodeGeneration.TypeScript.TypeScriptTemplate">
             <summary>The TypeScript output templates.</summary>

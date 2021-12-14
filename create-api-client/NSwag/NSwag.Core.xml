@@ -163,6 +163,10 @@
             <param name="item">The item.</param>
             <returns></returns>
         </member>
+        <member name="M:NSwag.Collections.ObservableDictionary`2.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{TKey,TValue}}#GetEnumerator">
+            <summary>Returns an enumerator that iterates through the collection.</summary>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.</returns>
+        </member>
         <member name="M:NSwag.Collections.ObservableDictionary`2.GetEnumerator">
             <summary>Returns an enumerator that iterates through the collection.</summary>
             <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.</returns>
@@ -427,6 +431,9 @@
         <member name="P:NSwag.OpenApiExternalDocumentation.Url">
             <summary>Gets or sets the documentation URL.</summary>
         </member>
+        <member name="T:NSwag.OpenApiHeader">
+            <summary>A header.</summary>
+        </member>
         <member name="T:NSwag.OpenApiHeaders">
             <summary>A collection of headers.</summary>
         </member>
@@ -674,6 +681,9 @@
         <member name="P:NSwag.OpenApiParameter.Name">
             <summary>Gets or sets the name.</summary>
         </member>
+        <member name="P:NSwag.OpenApiParameter.OriginalName">
+            <summary>Gets or sets a original name property x-originalName which is often used in code generation (default: null).</summary>
+        </member>
         <member name="P:NSwag.OpenApiParameter.Kind">
             <summary>Gets or sets the kind of the parameter.</summary>
         </member>
@@ -699,7 +709,7 @@
             <summary>Gets or sets the format of the array if type array is used.</summary>
         </member>
         <member name="P:NSwag.OpenApiParameter.Examples">
-            <summary>Gets or sets the headers (OpenAPI only).</summary>
+            <summary>Gets or sets the examples (OpenAPI only).</summary>
         </member>
         <member name="P:NSwag.OpenApiParameter.Schema">
             <summary>Gets or sets the schema which is only available when <see cref="P:NSwag.OpenApiParameter.Kind"/> == body.</summary>

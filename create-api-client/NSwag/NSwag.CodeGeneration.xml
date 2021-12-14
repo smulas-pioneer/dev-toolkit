@@ -771,7 +771,7 @@
             <returns>The client name.</returns>
         </member>
         <member name="T:NSwag.CodeGeneration.OperationNameGenerators.SingleClientFromPathSegmentsOperationNameGenerator">
-            <summary>Generates the client and operation name based on the path segments (operation name = last segment, client name = second to last segment).</summary>
+            <summary>Generates the operation name from path segments (suffixed by HTTP operation name if need be)</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.OperationNameGenerators.SingleClientFromPathSegmentsOperationNameGenerator.SupportsMultipleClients">
             <summary>Gets a value indicating whether the generator supports multiple client classes.</summary>
@@ -785,12 +785,12 @@
             <returns>The client name.</returns>
         </member>
         <member name="M:NSwag.CodeGeneration.OperationNameGenerators.SingleClientFromPathSegmentsOperationNameGenerator.GetOperationName(NSwag.OpenApiDocument,System.String,System.String,NSwag.OpenApiOperation)">
-            <summary>Gets the client name for a given operation (may be empty).</summary>
+            <summary>Gets the operation name for a given operation.</summary>
             <param name="document">The Swagger document.</param>
             <param name="path">The HTTP path.</param>
             <param name="httpMethod">The HTTP method.</param>
             <param name="operation">The operation.</param>
-            <returns>The client name.</returns>
+            <returns>The operation name.</returns>
         </member>
         <member name="M:NSwag.CodeGeneration.OperationNameGenerators.SingleClientFromPathSegmentsOperationNameGenerator.ConvertPathToName(System.String)">
             <summary>Converts the path to an operation name.</summary>

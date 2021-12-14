@@ -387,6 +387,9 @@
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.JsonSerializerParameterCode">
             <summary>Gets the JSON serializer parameter code.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.JsonConvertersArrayCode">
+            <summary>Gets the JSON converters array code.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpClientTemplateModel.Title">
             <summary>Gets the Title.</summary>
         </member>
@@ -646,6 +649,12 @@
             <param name="allParameters">All parameters.</param>
             <returns>The parameter variable name.</returns>
         </member>
+        <member name="M:NSwag.CodeGeneration.CSharp.Models.CSharpOperationModel.GetParameterVariableIdentifier(NSwag.OpenApiParameter,System.Collections.Generic.IEnumerable{NSwag.OpenApiParameter})">
+            <summary>Gets the identifier of the parameter variable.</summary>
+            <param name="parameter">The parameter.</param>
+            <param name="allParameters">All parameters.</param>
+            <returns>The parameter variable identifier.</returns>
+        </member>
         <member name="M:NSwag.CodeGeneration.CSharp.Models.CSharpOperationModel.ResolveParameterType(NSwag.OpenApiParameter)">
             <summary>Resolves the type of the parameter.</summary>
             <param name="parameter">The parameter.</param>
@@ -665,10 +674,11 @@
         <member name="T:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel">
             <summary>The CSharp parameter model.</summary>
         </member>
-        <member name="M:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel.#ctor(System.String,System.String,System.String,NSwag.OpenApiParameter,System.Collections.Generic.IList{NSwag.OpenApiParameter},NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase,NSwag.CodeGeneration.IClientGenerator,NJsonSchema.CodeGeneration.TypeResolverBase)">
+        <member name="M:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel.#ctor(System.String,System.String,System.String,System.String,NSwag.OpenApiParameter,System.Collections.Generic.IList{NSwag.OpenApiParameter},NJsonSchema.CodeGeneration.CodeGeneratorSettingsBase,NSwag.CodeGeneration.IClientGenerator,NJsonSchema.CodeGeneration.TypeResolverBase)">
             <summary>Initializes a new instance of the <see cref="T:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel" /> class.</summary>
             <param name="parameterName">Name of the parameter.</param>
             <param name="variableName">Name of the variable.</param>
+            <param name="variableIdentifier">Identifier of the variable.</param>
             <param name="typeName">The type name.</param>
             <param name="parameter">The parameter.</param>
             <param name="allParameters">All parameters.</param>
@@ -684,6 +694,12 @@
         </member>
         <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel.IsValidIdentifier">
             <summary>Gets a value indicating whether the parameter name is a valid CSharp identifier.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel.HasAdditionalProperties">
+            <summary>Gets a value indicating whether the parameter allows additional properties.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.CSharp.Models.CSharpParameterModel.VariableIdentifier">
+            <summary>Gets the unescaped variable name.</summary>
         </member>
         <member name="T:NSwag.CodeGeneration.CSharp.Models.CSharpResponseModel">
             <summary>The CSharp response model.</summary>
