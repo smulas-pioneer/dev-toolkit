@@ -1,0 +1,13 @@
+
+class BaseClientProxy {
+  public static defaultHeaders: { [key: string]: string };
+  protected transformOptions(options_: any) {
+    // add creds
+    options_.credentials = 'include';
+    if (BaseClientProxy.defaultHeaders) {
+      options_.headers = { ...options_.headers, ...BaseClientProxy.defaultHeaders };
+    }
+    return Promise.resolve(options_);
+  }
+
+}
