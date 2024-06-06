@@ -202,6 +202,12 @@
         <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel.RequiresMomentJSDuration">
             <summary>Gets a value indicating whether MomentJS duration format is needed (moment-duration-format package).</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel.SupportsOverrideKeyword">
+            <summary>Gets a value indicating whether the target TypeScript version supports override keyword.</summary>
+        </member>
+        <member name="P:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFileTemplateModel.SupportsTypeOnlyImports">
+            <summary>Gets a value indicating whether the target TypeScript version supports Type-Only imports</summary>
+        </member>
         <member name="T:NSwag.CodeGeneration.TypeScript.Models.TypeScriptFrameworkAngularModel">
             <summary>Angular specific information.</summary>
         </member>
@@ -536,7 +542,7 @@
             <summary>Gets or sets the name of the exception class (default 'ApiException').</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.UseAbortSignal">
-            <summary>Gets or sets a value indicating whether to use the AbortSignal (Fetch/Aurelia template only, default: false).</summary>
+            <summary>Gets or sets a value indicating whether to use the AbortSignal (Aurelia/Axios/Fetch template only, default: false).</summary>
         </member>
         <member name="P:NSwag.CodeGeneration.TypeScript.TypeScriptClientGeneratorSettings.HttpClass">
             <summary>Gets or sets the HTTP service class (applies only for the Angular template, default: HttpClient).</summary>
