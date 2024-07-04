@@ -14,6 +14,7 @@ function usage()
      -n, --namespace  C# NAMESPACE      a valid c# namespace name to be used in the output
      -x, --nocors                       omit cross-origin-scripting (ts)
      -r, --optionals                    optional parameters with reorder (required first, optional at the end)
+     -t, --tstemplate TS TEMPLATE       Specify typescript template ('JQueryCallbacks', 'JQueryPromises', 'AngularJS', 'Angular', 'Fetch', 'Aurelia', 'Axios (preview)') default to fetch.
      -o, --output     OUTPUT_FILE       output file
      -d, --debug                        show debug informations
 
@@ -27,6 +28,7 @@ lang=
 ns="MGLib"
 nocors=
 optionals=
+tstemplate=fetch
 vlang=
 slang=
 output=
@@ -38,7 +40,7 @@ debug=
 # use getopt and store the output into $OPTS
 # note the use of -o for the short options, --long for the long name options
 # and a : for any option that takes a parameter
-OPTS=$(getopt -o "hs:l:n:xro:d" --long "help,swag:,lang:,namespace:,nocors,optionals,output:,debug" -n "$progname" -- "$@")
+OPTS=$(getopt -o "hs:l:n:xrt:o:d" --long "help,swag:,lang:,namespace:,nocors,optionals,tstemplate:,output:,debug" -n "$progname" -- "$@")
 if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
 if [ $# -eq 0 ]; then usage; exit 1; fi
 
@@ -54,6 +56,7 @@ while true; do
     -n | --namespace ) ns="$2"; shift 2;;
     -x | --nocors ) nocors="true"; shift;;
     -r | --optionals ) optionals="true"; shift;;
+    -t | --tstemplate ) tstemplate="$2"; shift 2;;
     -o | --output ) output="$2"; shift 2 ;;
     -d | --debug ) debug="true"; shift;;
     -- ) shift; break ;;
@@ -80,7 +83,6 @@ if [[ "$swag" != "" ]] && [[ "$lang" != "" ]]; then
     swagCodeOpts='/ClassName:{controller}Client     
                   /UseTransformOptionsMethod:true 
                   /ClientBaseClass:BaseClientProxy 
-                  /Template:Fetch 
                   /PromiseType:Promise 
                   /DateTimeType:string 
                   /GenerateClientClasses:true 
@@ -88,7 +90,7 @@ if [[ "$swag" != "" ]] && [[ "$lang" != "" ]]; then
                   /OperationGenerationMode:MultipleClientsFromOperationId 
                   /MarkOptionalProperties:true 
                   /TypeStyle:Interface'
-    swagCodeOpts="$swagCodeOpts $swagCodeOptsOptionals /ExtensionCode:$tplExtCode"
+    swagCodeOpts="$swagCodeOpts $swagCodeOptsOptionals /ExtensionCode:$tplExtCode /Template:$tstemplate"
 
   else
     if [ "$lang" == "cs" ]; then
