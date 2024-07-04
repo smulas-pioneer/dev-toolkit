@@ -240,6 +240,9 @@
         <member name="P:NSwag.CodeGeneration.Models.OperationModelBase`2.Id">
             <summary>Gets the operation ID.</summary>
         </member>
+        <member name="P:NSwag.CodeGeneration.Models.OperationModelBase`2.Tags">
+            <summary>Gets the operation tags.</summary>
+        </member>
         <member name="P:NSwag.CodeGeneration.Models.OperationModelBase`2.Path">
             <summary>Gets or sets the HTTP path (i.e. the absolute route).</summary>
         </member>
