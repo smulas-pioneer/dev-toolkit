@@ -349,14 +349,11 @@
         <member name="F:NSwag.Commands.Runtime.WinX86">
             <summary>Full .NET framework, x86.</summary>
         </member>
-        <member name="F:NSwag.Commands.Runtime.Net60">
-            <summary>.NET 6 app.</summary>
-        </member>
-        <member name="F:NSwag.Commands.Runtime.Net70">
-            <summary>.NET 7 app.</summary>
-        </member>
         <member name="F:NSwag.Commands.Runtime.Net80">
             <summary>.NET 8 app.</summary>
+        </member>
+        <member name="F:NSwag.Commands.Runtime.Net90">
+            <summary>.NET 9 app.</summary>
         </member>
         <member name="F:NSwag.Commands.Runtime.Debug">
             <summary>Execute in the same process.</summary>
